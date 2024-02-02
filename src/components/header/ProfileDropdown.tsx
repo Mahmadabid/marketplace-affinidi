@@ -1,3 +1,4 @@
+import { useCartContext } from '@/utils/CartContext';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
@@ -11,6 +12,7 @@ interface ProfileDropdownProps {
 const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ setLoggingOut, email, picture }) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const { clearCart } = useCartContext();
 
     useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {
@@ -28,6 +30,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ setLoggingOut, email,
 
     const handleLogout = () => {
         setLoggingOut(true);
+        clearCart();
         signOut();
     };
 

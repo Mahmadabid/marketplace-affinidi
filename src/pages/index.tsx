@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 
 const ProductDisplay = () => {
-
   const { addToCart } = useCartContext();
   const [showModal, setShowModal] = useState(false);
   const [User, _] = useContext(UserContext);
@@ -18,12 +17,16 @@ const ProductDisplay = () => {
 
   const closeModal = () => {
     setShowModal(false);
-  }
+  };
 
   const products = [
     { id: 1, name: 'Hoodie', price: 10, imageUrl: 'hoodie.png', quantity: 1, description: 'hkjasdf jfhkjashf kashdfjshdf sjhkjh' },
     { id: 2, name: 'T-Shirt', price: 15, imageUrl: 'tee.png', quantity: 1, description: 'hkjasdf jfhkjas' },
   ];
+
+  const discountedPrice = (price: number) => {
+    return User.user.verified ? price - price * 0.01 : price;
+  };
 
   return (
     <div>
@@ -62,16 +65,25 @@ const ProductDisplay = () => {
           </span>
         </span>
       </div>
-      {isVisible && <div className="text-center break-words text-slate-500 mt-1 font-medium">{User.user.verified ? 'Verified user get 1% discount' : 'pass affinidi verification to get verified'}</div>}
+      {isVisible && (
+        <div className="text-center break-words text-slate-500 mt-1 font-medium">
+          {User.user.verified ? 'Verified user gets a 1% discount' : 'Pass Affinidi verification to get verified'}
+        </div>
+      )}
       <div className="flex flex-row flex-wrap justify-center gap-6 p-4 md:p-10">
         {showModal && <Modal closeModal={closeModal} />}
         {products.map((product) => (
-          <div key={product.id} className="border-2 border-gray-300 p-4 text-center flex-1 max-w-60">
+          <div key={product.id} className="border-2 border-gray-300 p-4 text-center flex-1 w-full">
             <img src={product.imageUrl} alt={product.name} className="max-h-40 mx-auto mb-4" />
             <h2 className="text-lg font-semibold">{product.name}</h2>
-            <p className="text-gray-600 font-medium"><span className={`${User.user.verified && 'line-through text-red-500'}`}>${product.price}</span>&nbsp; ${User.user.verified && product.price - product.price * 1 / 100}</p>
+            <p className="text-gray-600 font-medium">
+              <span className={`${User.user.verified && 'line-through text-red-500'}`}>
+                ${product.price}
+              </span>&nbsp;
+              ${discountedPrice(product.price)}
+            </p>
             <button
-              onClick={() => addToCart(product, openModal)}
+              onClick={() => addToCart({ ...product, price: discountedPrice(product.price) }, openModal)}
               className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded mt-4"
             >
               Add to Cart
