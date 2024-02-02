@@ -65,15 +65,11 @@ const ProductDisplay = () => {
           </span>
         </span>
       </div>
-      {isVisible && (
-        <div className="text-center break-words text-slate-500 mt-1 font-medium">
-          {User.user.verified ? 'Verified user gets a 1% discount' : 'Pass Affinidi verification to get verified'}
-        </div>
-      )}
+      {isVisible && <div className="text-center break-words text-slate-500 mt-1 font-medium">{User.user.verified ? 'Verified user get 1% discount' : 'pass affinidi verification to get verified'}</div>}
       <div className="flex flex-row flex-wrap justify-center gap-6 p-4 md:p-10">
         {showModal && <Modal closeModal={closeModal} />}
         {products.map((product) => (
-          <div key={product.id} className="border-2 border-gray-300 p-4 text-center flex-1 w-full">
+          <div key={product.id} className="border-2 border-gray-300 p-4 text-center flex-1 max-w-60">
             <img src={product.imageUrl} alt={product.name} className="max-h-40 mx-auto mb-4" />
             <h2 className="text-lg font-semibold">{product.name}</h2>
             <p className="text-gray-600 font-medium">

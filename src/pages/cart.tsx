@@ -25,32 +25,36 @@ const Cart = () => {
         <div className="flex flex-col justify-center items-center">
             <h1 className='text-6xl font-bold italic my-2 text-[#3bdbb8] font-sans'>Your Cart</h1>
             {cartItems.length === 0 && <p className='text-xl my-4 font-medium text-slate-800'>Your cart is empty. Add some products first.</p>}
-            {cartItems.map((item, index) => (
-                <div
-                    key={index}
-                    className='m-2 border shadow-md px-2 flex flex-row justify-between items-center'
-                >
-                    <img
-                        className="object-cover w-14 h-14"
-                        src={item.imageUrl}
-                        alt={item.name}
-                    />
-                    <div className="p-4">
-                        <div className="flex flex-row items-center space-x-2 mb-2">
-                            <h2 className="text-xl font-bold">{item.name}</h2>
-                            <h2 className="bg-gray-200 px-2 font-medium rounded-sm">{item.quantity}</h2>
+            <div>
+                {cartItems.map((item, index) => (
+                    <div
+                        key={index}
+                        className='m-2 border shadow-md px-2 flex flex-row items-center justify-between space-x-3'
+                    >
+                        <div className='flex flex-row justify-center items-center'>
+                            <img
+                                className="object-cover w-14 h-14"
+                                src={item.imageUrl}
+                                alt={item.name}
+                            />
+                            <div className="p-4">
+                                <div className="flex flex-row items-center space-x-2 mb-2">
+                                    <h2 className="text-xl font-bold">{item.name}</h2>
+                                    <h2 className="bg-gray-200 px-2 font-medium rounded-sm">{item.quantity}</h2>
+                                </div>
+                                <div className='flex flex-row space-x-1 items-center justify-center'>
+                                    <h3 className="text-lg font-medium text-slate-800">${(item.price) * item.quantity}</h3>
+                                    <div className='w-3 h-[2px] bg-black bg-opacity-30' />
+                                    <p className='text-gray-600 text-sm break-all'>
+                                        {item.description}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div className='flex flex-row space-x-1 items-center justify-center'>
-                            <h3 className="text-lg font-medium text-slate-800">${(item.price) * item.quantity}</h3>
-                            <div className='w-3 h-[2px] bg-black bg-opacity-30' />
-                            <p className='text-gray-600 text-sm break-all'>
-                                {item.description}
-                            </p>
-                        </div>
+                        <FontAwesomeIcon onClick={() => removeFromCart(item.id)} icon={faTrash} className='text-[#ff0000] ml-6 mr-1 xse:ml-1 hover:cursor-pointer text-xl' />
                     </div>
-                    <FontAwesomeIcon onClick={() => removeFromCart(item.id)} icon={faTrash} className='text-[#ff0000] ml-6 mr-1 xse:ml-1 hover:cursor-pointer text-xl' />
-                </div>
-            ))}
+                ))}
+            </div>
             {cartItems.length !== 0 && <div className='flex flex-row space-x-10 items-center'>
                 <div className='font-medium text-2xl my-2'>
                     <span className='text-slate-800'>Total: </span>$<span className='text-[#1867cd]'>{getTotalPrice()}</span>
