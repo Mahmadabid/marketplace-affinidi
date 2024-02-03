@@ -1,16 +1,30 @@
+import { countries } from "@/components/country/Countries";
 import Modal from "@/components/shop/Modal";
 import { useCartContext } from "@/utils/CartContext";
 import { UserContext } from "@/utils/UserContext";
 import { faCertificate } from "@fortawesome/free-solid-svg-icons/faCertificate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import stringSimilarity from 'string-similarity';
+
+interface CountryProps {
+  name: string;
+  currencySymbol: string;
+  abbreviation: string;
+}
 
 const ProductDisplay = () => {
   const { addToCart } = useCartContext();
   const [showModal, setShowModal] = useState(false);
   const [User, _] = useContext(UserContext);
   const [isVisible, setIsVisible] = useState(false);
-
+  const [selectedGender, setSelectedGender] = useState(User.user.gender ? User.user.gender === 'male' ? 'Men' : User.user.gender === 'female' ? 'Women' : 'All' : 'All');
+  const [country, setCountry] = useState<CountryProps>({
+    name: "",
+    currencySymbol: "",
+    abbreviation: ""
+  });
+console.log(country)
   const openModal = () => {
     setShowModal(true);
   };
@@ -19,17 +33,67 @@ const ProductDisplay = () => {
     setShowModal(false);
   };
 
+  useEffect(() => {
+    if (User.user.country) {
+      const userCountryName = User.user.country;
+
+      const matches = stringSimilarity.findBestMatch(
+        userCountryName,
+        countries.map((c) => c.name)
+      );
+
+      const bestMatch = matches.bestMatch;
+      const closestCountry = countries.find((c) => c.name === bestMatch.target);
+
+      if (closestCountry) {
+        setCountry({
+          name: closestCountry.name,
+          currencySymbol: closestCountry.currencySymbol,
+          abbreviation: closestCountry.abbreviation,
+        });
+      }
+    } else {
+      setCountry({
+        name: "United States",
+        currencySymbol: "$",
+        abbreviation: "USA"
+      });
+    }
+  }, [User])
+
   const products = [
-    { id: 1, name: 'Hoodie', price: 10, imageUrl: 'hoodie.png', quantity: 1, description: 'hkjasdf jfhkjashf kashdfjshdf sjhkjh' },
-    { id: 2, name: 'T-Shirt', price: 15, imageUrl: 'tee.png', quantity: 1, description: 'hkjasdf jfhkjas' },
+    { id: 1, name: 'Hoodie', price: 10, imageUrl: 'hoodie.png', quantity: 1, description: 'hkjasdf jfhkjashf kashdfjshdf sjhkjh', gender: 'All' },
+    { id: 2, name: 'T-Shirt', price: 15, imageUrl: 'tee.png', quantity: 1, description: 'hkjasdf jfhkjas', gender: 'Men' },
+    { id: 3, name: 'Hoodie', price: 10, imageUrl: 'hoodie.png', quantity: 1, description: 'hkjasdf jfhkjashf kashdfjshdf sjhkjh', gender: 'All' },
+    { id: 4, name: 'T-Shirt', price: 15, imageUrl: 'tee.png', quantity: 1, description: 'hkjasdf jfhkjas', gender: 'Men' },
+    { id: 5, name: 'Sweater', price: 20, imageUrl: 'https://d2z0lqci37nukm.cloudfront.net/media/catalog/product/cache/5a319794f6868ce12b948b8c65d98dde/m/-/m-sw06-m112-ebony201_rbpoybyydv2tloxh.webp', quantity: 1, description: 'Some description', gender: 'Women' },
   ];
 
   const discountedPrice = (price: number) => {
     return User.user.verified ? price - price * 0.01 : price;
   };
 
+  const categories = ['Men', 'Women', 'All'];
+
+  const filteredProducts = products.filter(product => product.gender === selectedGender || selectedGender === 'All');
+
   return (
     <div>
+      { }
+      <div className="h-[1px] border-b-[1px] border-b-gray-400" />
+      <div className="bg-white border-b-[1px] p-2 font-medium border-b-gray-400 shadow-lg">
+        <ol className="flex flex-wrap justify-center space-x-6 mx-2">
+          {categories.map((category, index) => (
+            <li
+              key={index}
+              className={`hover:cursor-pointer ${selectedGender === category ? 'text-slate-500' : ''}`}
+              onClick={() => setSelectedGender(category)}
+            >
+              {category}
+            </li>
+          ))}
+        </ol>
+      </div>
       <div className="text-center flex flex-row justify-center items-center">
         <h1 className='text-6xl xse:text-3xl xb:text-4xl font-bold italic truncate my-2 text-[#3bdbb8] font-sans'>Welcome {User.user.nickname ? User.user.nickname : User.user.givenName ? User.user.givenName : 'User'}</h1>
         <span
@@ -66,11 +130,11 @@ const ProductDisplay = () => {
         </span>
       </div>
       {isVisible && <div className="text-center break-words text-slate-500 mt-1 font-medium">{User.user.verified ? 'Verified user get 1% discount' : 'pass affinidi verification to get verified'}</div>}
-      <div className="flex flex-row flex-wrap justify-center gap-6 p-4 md:p-10">
+      <div className="flex flex-wrap justify-center mt-8">
         {showModal && <Modal closeModal={closeModal} />}
-        {products.map((product) => (
-          <div key={product.id} className="border-2 border-gray-300 p-4 text-center flex-1 max-w-60">
-            <img src={product.imageUrl} alt={product.name} className="max-h-40 mx-auto mb-4" />
+        {filteredProducts.map((product, index) => (
+          <div key={index} className="border-2 border-gray-300 p-4 text-center flex-1 max-w-60 min-w-60 bg-white mx-6 rounded-lg overflow-hidden mb-6">
+            <img src={product.imageUrl} alt={product.name} className="max-h-40 max-w-40 mx-auto mb-4" />
             <h2 className="text-lg font-semibold">{product.name}</h2>
             <p className="text-gray-600 font-medium">
               <span className={`${User.user.verified && 'line-through text-red-500'}`}>

@@ -6,7 +6,7 @@ interface ConfirmationModalProps {
 
 const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ closeModal }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center">
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-60 w-screen h-screen">
       <ReactConfetti />
       <div className="p-6 rounded-lg text-center border bg-sky-50 border-slate-500">
         <p className="mb-4 text-2xl text-gray-800">Order submitted. Thank you for shopping with us!</p>
