@@ -31,6 +31,8 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ setLoggingOut, email,
     const handleLogout = () => {
         setLoggingOut(true);
         clearCart();
+        localStorage.removeItem('country');
+        document.cookie = 'setting=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;'
         signOut();
     };
 

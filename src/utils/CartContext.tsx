@@ -22,10 +22,10 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [cartItems, setCartItems] = useState<ItemProps[]>([]);
 
   useEffect(() => {
-    const storedCartItems: ItemProps[] = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+    const storedCartItems: ItemProps[] = JSON.parse(localStorage.getItem('cartItems') || '[]');
     setCartItems(storedCartItems);
   }, []);
-
+    
   const addToCart = (item: ItemProps, openModal: () => void) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
 
@@ -34,11 +34,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
       );
       setCartItems(updatedCart);
-      sessionStorage.setItem('cartItems', JSON.stringify(updatedCart));
+      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
     } else {
       const updatedCart = [...cartItems, { ...item, quantity: 1 }];
       setCartItems(updatedCart);
-      sessionStorage.setItem('cartItems', JSON.stringify(updatedCart));
+      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
     }
     openModal();
   };
@@ -48,14 +48,14 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       cartItem.id === itemId ? { ...cartItem, quantity: Math.max(0, cartItem.quantity - 1) } : cartItem
     );
 
-    const finalCart = updatedCart.filter((cartItem) => cartItem.quantity > 0)    
+    const finalCart = updatedCart.filter((cartItem) => cartItem.quantity > 0)
     setCartItems(finalCart);
-    sessionStorage.setItem('cartItems', JSON.stringify(finalCart));
+    localStorage.setItem('cartItems', JSON.stringify(finalCart));
   };
 
   const clearCart = () => {
     setCartItems([]);
-    sessionStorage.removeItem('cartItems');
+    localStorage.removeItem('cartItems');
   };
 
   return (

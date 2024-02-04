@@ -1,8 +1,9 @@
 import { useCartContext } from '@/utils/CartContext';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCertificate, faTrash, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useState } from 'react';
+import { CountryContext } from '@/utils/CountryContext';
 import { UserContext } from '@/utils/UserContext';
 
 const Cart = () => {
@@ -10,11 +11,22 @@ const Cart = () => {
     const { cartItems } = useCartContext();
     const { removeFromCart, clearCart } = useCartContext();
     const [isVisible, setIsVisible] = useState(false);
-    const [User, _] = useContext(UserContext);
     const router = useRouter();
+    const [country] = useContext(CountryContext);
+    const [User, _] = useContext(UserContext);
 
+    const convertedPrice = (price: number) => {
+        if (User.user.verified) {
+        const converted = price * country.currencyRate;
+        return Number(converted.toFixed(2));
+        } else {
+            return price;
+        }
+    };
+    
     const getTotalPrice = () => {
-        return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+        const TotalPrice =  cartItems.reduce((total, item) => total + item.quantity * convertedPrice(item.price), 0);
+        return Number(TotalPrice.toFixed(2));
     };
 
     const goToCheckout = () => {
@@ -43,7 +55,7 @@ const Cart = () => {
                                     <h2 className="bg-gray-200 px-2 font-medium rounded-sm">{item.quantity}</h2>
                                 </div>
                                 <div className='flex flex-row space-x-1 items-center justify-center'>
-                                    <h3 className="text-lg font-medium text-slate-800">${(item.price) * item.quantity}</h3>
+                                    <h3 className="text-lg font-medium text-slate-800">{country.currencySymbol}{(convertedPrice(item.price)) * item.quantity}</h3>
                                     <div className='w-3 h-[2px] bg-black bg-opacity-30' />
                                     <p className='text-gray-600 text-sm break-all'>
                                         {item.description}
@@ -57,7 +69,7 @@ const Cart = () => {
             </div>
             {cartItems.length !== 0 && <div className='flex flex-row space-x-10 items-center'>
                 <div className='font-medium text-2xl my-2'>
-                    <span className='text-slate-800'>Total: </span>$<span className='text-[#1867cd]'>{getTotalPrice()}</span>
+                    <span className='text-slate-800'>Total: </span>{country.currencySymbol}<span className='text-[#1867cd]'>{getTotalPrice()}</span>
                 </div>
                 <div className='relative items-center hover:cursor-pointer justify-center'>
                     <FontAwesomeIcon

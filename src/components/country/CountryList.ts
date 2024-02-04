@@ -2,1501 +2,1251 @@ export const countries = [
   {
     "name": "Andorra",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "French Southern and Antarctic Lands",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Laos",
     "currencySymbol": "₭",
-    "abbreviation": "LAK",
-    "currencyRate": 20609.678114
+    "abbreviation": "LAK"
   },
   {
     "name": "Canada",
     "currencySymbol": "$",
-    "abbreviation": "CAD",
-    "currencyRate": 1.343915
+    "abbreviation": "CAD"
   },
   {
     "name": "Nigeria",
     "currencySymbol": "₦",
-    "abbreviation": "NGN",
-    "currencyRate": 1315.717806
+    "abbreviation": "NGN"
   },
   {
     "name": "Vanuatu",
     "currencySymbol": "Vt",
-    "abbreviation": "VUV",
-    "currencyRate": 120.039341
+    "abbreviation": "VUV"
   },
   {
     "name": "Czechia",
     "currencySymbol": "Kč",
-    "abbreviation": "CZK",
-    "currencyRate": 22.972539
+    "abbreviation": "CZK"
   },
   {
     "name": "Malawi",
     "currencySymbol": "MK",
-    "abbreviation": "MWK",
-    "currencyRate": 1692.682111
+    "abbreviation": "MWK"
   },
   {
     "name": "Mali",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Iceland",
     "currencySymbol": "kr",
-    "abbreviation": "ISK",
-    "currencyRate": 136.197628
+    "abbreviation": "ISK"
   },
   {
     "name": "Norway",
     "currencySymbol": "kr",
-    "abbreviation": "NOK",
-    "currencyRate": 10.595574
+    "abbreviation": "NOK"
   },
   {
     "name": "Saint Vincent and the Grenadines",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Guadeloupe",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Chile",
     "currencySymbol": "$",
-    "abbreviation": "CLP",
-    "currencyRate": 932.016194
+    "abbreviation": "CLP"
   },
   {
     "name": "Bermuda",
     "currencySymbol": "$",
-    "abbreviation": "BMD",
-    "currencyRate": 1
+    "abbreviation": "BMD"
   },
   {
     "name": "Kuwait",
     "currencySymbol": "د.ك",
-    "abbreviation": "KWD",
-    "currencyRate": 0.307563
+    "abbreviation": "KWD"
   },
   {
     "name": "Dominica",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Montenegro",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "United States Virgin Islands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Cameroon",
     "currencySymbol": "Fr",
-    "abbreviation": "XAF",
-    "currencyRate": 606.572767
+    "abbreviation": "XAF"
   },
   {
     "name": "Sri Lanka",
     "currencySymbol": "Rs  රු",
-    "abbreviation": "LKR",
-    "currencyRate": 312.811657
+    "abbreviation": "LKR"
   },
   {
     "name": "China",
     "currencySymbol": "¥",
-    "abbreviation": "CNY",
-    "currencyRate": 7.193988
+    "abbreviation": "CNY"
   },
   {
     "name": "Bangladesh",
     "currencySymbol": "৳",
-    "abbreviation": "BDT",
-    "currencyRate": 109.737034
+    "abbreviation": "BDT"
   },
   {
     "name": "Sweden",
     "currencySymbol": "kr",
-    "abbreviation": "SEK",
-    "currencyRate": 10.484326
+    "abbreviation": "SEK"
   },
   {
     "name": "Grenada",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Turkey",
     "currencySymbol": "₺",
-    "abbreviation": "TRY",
-    "currencyRate": 30.501551
+    "abbreviation": "TRY"
   },
   {
     "name": "Guinea",
     "currencySymbol": "Fr",
-    "abbreviation": "GNF",
-    "currencyRate": 8585.043287
+    "abbreviation": "GNF"
   },
   {
     "name": "Tanzania",
     "currencySymbol": "Sh",
-    "abbreviation": "TZS",
-    "currencyRate": 2524.240935
+    "abbreviation": "TZS"
   },
   {
     "name": "Rwanda",
     "currencySymbol": "Fr",
-    "abbreviation": "RWF",
-    "currencyRate": 1288.746337
+    "abbreviation": "RWF"
   },
   {
     "name": "Singapore",
     "currencySymbol": "$",
-    "abbreviation": "SGD",
-    "currencyRate": 1.33955
+    "abbreviation": "SGD"
   },
   {
     "name": "Morocco",
     "currencySymbol": "د.م.",
-    "abbreviation": "MAD",
-    "currencyRate": 9.999135
+    "abbreviation": "MAD"
   },
   {
     "name": "Saint Barthélemy",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Iraq",
     "currencySymbol": "ع.د",
-    "abbreviation": "IQD",
-    "currencyRate": 1309.01141
+    "abbreviation": "IQD"
   },
   {
     "name": "Brunei",
     "currencySymbol": "$",
-    "abbreviation": "BND",
-    "currencyRate": 1.339917
+    "abbreviation": "BND"
   },
   {
     "name": "Isle of Man",
     "currencySymbol": "£",
-    "abbreviation": "GBP",
-    "currencyRate": 0.78924
+    "abbreviation": "GBP"
   },
   {
     "name": "North Korea",
     "currencySymbol": "₩",
-    "abbreviation": "KPW",
-    "currencyRate": 899.968
+    "abbreviation": "KPW"
   },
   {
     "name": "Iran",
     "currencySymbol": "﷼",
-    "abbreviation": "IRR",
-    "currencyRate": 42015.045475
+    "abbreviation": "IRR"
   },
   {
     "name": "Curaçao",
     "currencySymbol": "ƒ",
-    "abbreviation": "ANG",
-    "currencyRate": 1.79
+    "abbreviation": "ANG"
   },
   {
     "name": "Paraguay",
     "currencySymbol": "₲",
-    "abbreviation": "PYG",
-    "currencyRate": 7297.159968
+    "abbreviation": "PYG"
   },
   {
     "name": "Albania",
     "currencySymbol": "L",
-    "abbreviation": "ALL",
-    "currencyRate": 96.111704
+    "abbreviation": "ALL"
   },
   {
     "name": "Tajikistan",
     "currencySymbol": "ЅМ",
-    "abbreviation": "TJS",
-    "currencyRate": 10.947858
+    "abbreviation": "TJS"
   },
   {
     "name": "Bolivia",
     "currencySymbol": "Bs.",
-    "abbreviation": "BOB",
-    "currencyRate": 6.926649
+    "abbreviation": "BOB"
   },
   {
     "name": "Austria",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Saint Kitts and Nevis",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "United States Minor Outlying Islands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Colombia",
     "currencySymbol": "$",
-    "abbreviation": "COP",
-    "currencyRate": 3904.92565
+    "abbreviation": "COP"
   },
   {
     "name": "Kosovo",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Belize",
     "currencySymbol": "$",
-    "abbreviation": "BZD",
-    "currencyRate": 2
+    "abbreviation": "BZD"
   },
   {
     "name": "Guinea-Bissau",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Marshall Islands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Myanmar",
     "currencySymbol": "Ks",
-    "abbreviation": "MMK",
-    "currencyRate": 2102.995175
+    "abbreviation": "MMK"
   },
   {
     "name": "French Polynesia",
     "currencySymbol": "₣",
-    "abbreviation": "XPF",
-    "currencyRate": 110.347998
+    "abbreviation": "XPF"
   },
   {
     "name": "Brazil",
     "currencySymbol": "R$",
-    "abbreviation": "BRL",
-    "currencyRate": 4.920194
+    "abbreviation": "BRL"
   },
   {
     "name": "Croatia",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Somalia",
     "currencySymbol": "Sh",
-    "abbreviation": "SOS",
-    "currencyRate": 571.512624
+    "abbreviation": "SOS"
   },
   {
     "name": "Afghanistan",
     "currencySymbol": "؋",
-    "abbreviation": "AFN",
-    "currencyRate": 74.49522
+    "abbreviation": "AFN"
   },
   {
     "name": "Anguilla",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Cook Islands",
     "currencySymbol": "$",
-    "abbreviation": "NZD",
-    "currencyRate": 1.64655
+    "abbreviation": "NZD"
   },
   {
     "name": "Western Sahara",
     "currencySymbol": "دج",
-    "abbreviation": "DZD",
-    "currencyRate": 134.789127
+    "abbreviation": "DZD"
   },
   {
     "name": "New Zealand",
     "currencySymbol": "$",
-    "abbreviation": "NZD",
-    "currencyRate": 1.64655
+    "abbreviation": "NZD"
   },
   {
     "name": "Eritrea",
     "currencySymbol": "Nfk",
-    "abbreviation": "ERN",
-    "currencyRate": 15
+    "abbreviation": "ERN"
   },
   {
     "name": "Cambodia",
     "currencySymbol": "៛",
-    "abbreviation": "KHR",
-    "currencyRate": 4093.436206
+    "abbreviation": "KHR"
   },
   {
     "name": "Bahamas",
     "currencySymbol": "$",
-    "abbreviation": "BSD",
-    "currencyRate": 1
+    "abbreviation": "BSD"
   },
   {
     "name": "Belarus",
     "currencySymbol": "Br",
-    "abbreviation": "BYN",
-    "currencyRate": 3.23814
+    "abbreviation": "BYN"
   },
   {
     "name": "Norfolk Island",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Tuvalu",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "South Georgia",
     "currencySymbol": "£",
-    "abbreviation": "SHP",
-    "currencyRate": 0.789226
+    "abbreviation": "SHP"
   },
   {
     "name": "Mauritania",
     "currencySymbol": "UM",
-    "abbreviation": "MRU",
-    "currencyRate": 39.991002
+    "abbreviation": "MRU"
   },
   {
     "name": "New Caledonia",
     "currencySymbol": "₣",
-    "abbreviation": "XPF",
-    "currencyRate": 110.347998
+    "abbreviation": "XPF"
   },
   {
     "name": "Bulgaria",
     "currencySymbol": "лв",
-    "abbreviation": "BGN",
-    "currencyRate": 1.808216
+    "abbreviation": "BGN"
   },
   {
     "name": "Mozambique",
     "currencySymbol": "MT",
-    "abbreviation": "MZN",
-    "currencyRate": 63.888957
+    "abbreviation": "MZN"
   },
   {
     "name": "Niue",
     "currencySymbol": "$",
-    "abbreviation": "NZD",
-    "currencyRate": 1.64655
+    "abbreviation": "NZD"
   },
   {
     "name": "Estonia",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Italy",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Malta",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Slovenia",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "India",
     "currencySymbol": "₹",
-    "abbreviation": "INR",
-    "currencyRate": 82.983687
+    "abbreviation": "INR"
   },
   {
     "name": "Peru",
     "currencySymbol": "S/ ",
-    "abbreviation": "PEN",
-    "currencyRate": 3.810766
+    "abbreviation": "PEN"
   },
   {
     "name": "Burundi",
     "currencySymbol": "Fr",
-    "abbreviation": "BIF",
-    "currencyRate": 2842.877671
+    "abbreviation": "BIF"
   },
   {
     "name": "Lithuania",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "United States",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Honduras",
     "currencySymbol": "L",
-    "abbreviation": "HNL",
-    "currencyRate": 24.666837
+    "abbreviation": "HNL"
   },
   {
     "name": "Tonga",
     "currencySymbol": "T$",
-    "abbreviation": "TOP",
-    "currencyRate": 2.344362
+    "abbreviation": "TOP"
   },
   {
     "name": "Saudi Arabia",
     "currencySymbol": "ر.س",
-    "abbreviation": "SAR",
-    "currencyRate": 3.75
+    "abbreviation": "SAR"
   },
   {
     "name": "Suriname",
     "currencySymbol": "$",
-    "abbreviation": "SRD",
-    "currencyRate": 36.742073
+    "abbreviation": "SRD"
   },
   {
     "name": "Qatar",
     "currencySymbol": "ر.ق",
-    "abbreviation": "QAR",
-    "currencyRate": 3.64
+    "abbreviation": "QAR"
   },
   {
     "name": "Saint Helena, Ascension and Tristan da Cunha",
     "currencySymbol": "£",
-    "abbreviation": "GBP",
-    "currencyRate": 0.78924
+    "abbreviation": "GBP"
   },
   {
     "name": "Gibraltar",
     "currencySymbol": "£",
-    "abbreviation": "GIP",
-    "currencyRate": 0.789226
+    "abbreviation": "GIP"
   },
   {
     "name": "Northern Mariana Islands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Mauritius",
     "currencySymbol": "₨",
-    "abbreviation": "MUR",
-    "currencyRate": 45.550202
+    "abbreviation": "MUR"
   },
   {
     "name": "Barbados",
     "currencySymbol": "$",
-    "abbreviation": "BBD",
-    "currencyRate": 2
+    "abbreviation": "BBD"
   },
   {
     "name": "Réunion",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "British Indian Ocean Territory",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Syria",
     "currencySymbol": "£",
-    "abbreviation": "SYP",
-    "currencyRate": 12907.606861
+    "abbreviation": "SYP"
   },
   {
     "name": "Egypt",
     "currencySymbol": "£",
-    "abbreviation": "EGP",
-    "currencyRate": 30.89626
+    "abbreviation": "EGP"
   },
   {
     "name": "São Tomé and Príncipe",
     "currencySymbol": "Db",
-    "abbreviation": "STN",
-    "currencyRate": 22.655498
+    "abbreviation": "STN"
   },
   {
     "name": "Kiribati",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Timor-Leste",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Lesotho",
     "currencySymbol": "L",
-    "abbreviation": "LSL",
-    "currencyRate": 18.775587
+    "abbreviation": "LSL"
   },
   {
     "name": "Solomon Islands",
     "currencySymbol": "$",
-    "abbreviation": "SBD",
-    "currencyRate": 8.454977
+    "abbreviation": "SBD"
   },
   {
     "name": "Libya",
     "currencySymbol": "ل.د",
-    "abbreviation": "LYD",
-    "currencyRate": 4.826999
+    "abbreviation": "LYD"
   },
   {
     "name": "South Korea",
     "currencySymbol": "₩",
-    "abbreviation": "KRW",
-    "currencyRate": 1330.809455
+    "abbreviation": "KRW"
   },
   {
     "name": "Liechtenstein",
     "currencySymbol": "Fr",
-    "abbreviation": "CHF",
-    "currencyRate": 0.863956
+    "abbreviation": "CHF"
   },
   {
     "name": "Nicaragua",
     "currencySymbol": "C$",
-    "abbreviation": "NIO",
-    "currencyRate": 36.629487
+    "abbreviation": "NIO"
   },
   {
     "name": "Ecuador",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Maldives",
     "currencySymbol": ".ރ",
-    "abbreviation": "MVR",
-    "currencyRate": 15.449795
+    "abbreviation": "MVR"
   },
   {
     "name": "Algeria",
     "currencySymbol": "د.ج",
-    "abbreviation": "DZD",
-    "currencyRate": 134.789127
+    "abbreviation": "DZD"
   },
   {
     "name": "Kyrgyzstan",
     "currencySymbol": "с",
-    "abbreviation": "KGS",
-    "currencyRate": 89.374692
+    "abbreviation": "KGS"
   },
   {
     "name": "Finland",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Antarctica",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Kenya",
     "currencySymbol": "Sh",
-    "abbreviation": "KES",
-    "currencyRate": 160.459341
+    "abbreviation": "KES"
   },
   {
     "name": "Cuba",
     "currencySymbol": "$",
-    "abbreviation": "CUP",
-    "currencyRate": 24
+    "abbreviation": "CUP"
   },
   {
     "name": "Montserrat",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Poland",
     "currencySymbol": "zł",
-    "abbreviation": "PLN",
-    "currencyRate": 3.986062
+    "abbreviation": "PLN"
   },
   {
     "name": "Åland Islands",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Ethiopia",
     "currencySymbol": "Br",
-    "abbreviation": "ETB",
-    "currencyRate": 56.677303
+    "abbreviation": "ETB"
   },
   {
     "name": "Togo",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Bosnia and Herzegovina",
     "currencySymbol": "KM",
-    "abbreviation": "BAM",
-    "currencyRate": 1.808584
+    "abbreviation": "BAM"
   },
   {
     "name": "Uruguay",
     "currencySymbol": "$",
-    "abbreviation": "UYU",
-    "currencyRate": 39.07725
+    "abbreviation": "UYU"
   },
   {
     "name": "Guam",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Cape Verde",
     "currencySymbol": "Esc",
-    "abbreviation": "CVE",
-    "currencyRate": 101.963614
+    "abbreviation": "CVE"
   },
   {
     "name": "Chad",
     "currencySymbol": "Fr",
-    "abbreviation": "XAF",
-    "currencyRate": 606.572767
+    "abbreviation": "XAF"
   },
   {
     "name": "Vatican City",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Palau",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Haiti",
     "currencySymbol": "G",
-    "abbreviation": "HTG",
-    "currencyRate": 131.640887
+    "abbreviation": "HTG"
   },
   {
     "name": "Yemen",
     "currencySymbol": "﷼",
-    "abbreviation": "YER",
-    "currencyRate": 250.21445
+    "abbreviation": "YER"
   },
   {
     "name": "Eswatini",
     "currencySymbol": "L",
-    "abbreviation": "SZL",
-    "currencyRate": 18.775587
+    "abbreviation": "SZL"
   },
   {
     "name": "Zimbabwe",
     "currencySymbol": "$",
-    "abbreviation": "ZWL",
-    "currencyRate": 10402.106266
+    "abbreviation": "ZWL"
   },
   {
     "name": "Greece",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Israel",
     "currencySymbol": "₪",
-    "abbreviation": "ILS",
-    "currencyRate": 3.658939
+    "abbreviation": "ILS"
   },
   {
     "name": "Saint Martin",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Antigua and Barbuda",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Cyprus",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Sint Maarten",
     "currencySymbol": "ƒ",
-    "abbreviation": "ANG",
-    "currencyRate": 1.79
+    "abbreviation": "ANG"
   },
   {
     "name": "Monaco",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Fiji",
     "currencySymbol": "$",
-    "abbreviation": "FJD",
-    "currencyRate": 2.234387
+    "abbreviation": "FJD"
   },
   {
     "name": "Ukraine",
     "currencySymbol": "₴",
-    "abbreviation": "UAH",
-    "currencyRate": 37.575061
+    "abbreviation": "UAH"
   },
   {
     "name": "Martinique",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Hong Kong",
     "currencySymbol": "$",
-    "abbreviation": "HKD",
-    "currencyRate": 7.820273
+    "abbreviation": "HKD"
   },
   {
     "name": "Portugal",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Bhutan",
     "currencySymbol": "Nu.",
-    "abbreviation": "BTN",
-    "currencyRate": 82.983621
+    "abbreviation": "BTN"
   },
   {
     "name": "Nepal",
     "currencySymbol": "₨",
-    "abbreviation": "NPR",
-    "currencyRate": 132.773794
+    "abbreviation": "NPR"
   },
   {
     "name": "France",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Ireland",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "United Arab Emirates",
     "currencySymbol": "د.إ",
-    "abbreviation": "AED",
-    "currencyRate": 3.6725
+    "abbreviation": "AED"
   },
   {
     "name": "Guernsey",
     "currencySymbol": "£",
-    "abbreviation": "GBP",
-    "currencyRate": 0.78924
+    "abbreviation": "GBP"
   },
   {
     "name": "Saint Lucia",
     "currencySymbol": "$",
-    "abbreviation": "XCD",
-    "currencyRate": 2.7
+    "abbreviation": "XCD"
   },
   {
     "name": "Dominican Republic",
     "currencySymbol": "$",
-    "abbreviation": "DOP",
-    "currencyRate": 58.807613
+    "abbreviation": "DOP"
   },
   {
     "name": "Serbia",
     "currencySymbol": "дин.",
-    "abbreviation": "RSD",
-    "currencyRate": 108.520849
+    "abbreviation": "RSD"
   },
   {
     "name": "Botswana",
     "currencySymbol": "P",
-    "abbreviation": "BWP",
-    "currencyRate": 13.629653
+    "abbreviation": "BWP"
   },
   {
     "name": "Ivory Coast",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Ghana",
     "currencySymbol": "₵",
-    "abbreviation": "GHS",
-    "currencyRate": 12.378624
+    "abbreviation": "GHS"
   },
   {
     "name": "Comoros",
     "currencySymbol": "Fr",
-    "abbreviation": "KMF",
-    "currencyRate": 454.929575
+    "abbreviation": "KMF"
   },
   {
     "name": "Azerbaijan",
     "currencySymbol": "₼",
-    "abbreviation": "AZN",
-    "currencyRate": 1.699978
+    "abbreviation": "AZN"
   },
   {
     "name": "United Kingdom",
     "currencySymbol": "£",
-    "abbreviation": "GBP",
-    "currencyRate": 0.78924
+    "abbreviation": "GBP"
   },
   {
     "name": "Central African Republic",
     "currencySymbol": "Fr",
-    "abbreviation": "XAF",
-    "currencyRate": 606.572767
+    "abbreviation": "XAF"
   },
   {
     "name": "Palestine",
     "currencySymbol": "E£",
-    "abbreviation": "EGP",
-    "currencyRate": 30.89626
+    "abbreviation": "EGP"
   },
   {
     "name": "Caribbean Netherlands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Taiwan",
     "currencySymbol": "$",
-    "abbreviation": "TWD",
-    "currencyRate": 31.304965
+    "abbreviation": "TWD"
   },
   {
     "name": "Pitcairn Islands",
     "currencySymbol": "$",
-    "abbreviation": "NZD",
-    "currencyRate": 1.64655
+    "abbreviation": "NZD"
   },
   {
     "name": "San Marino",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Svalbard and Jan Mayen",
     "currencySymbol": "kr",
-    "abbreviation": "NOK",
-    "currencyRate": 10.595574
+    "abbreviation": "NOK"
   },
   {
     "name": "Djibouti",
     "currencySymbol": "Fr",
-    "abbreviation": "DJF",
-    "currencyRate": 177.721
+    "abbreviation": "DJF"
   },
   {
     "name": "Wallis and Futuna",
     "currencySymbol": "₣",
-    "abbreviation": "XPF",
-    "currencyRate": 110.347998
+    "abbreviation": "XPF"
   },
   {
     "name": "Denmark",
     "currencySymbol": "kr",
-    "abbreviation": "DKK",
-    "currencyRate": 6.898427
+    "abbreviation": "DKK"
   },
   {
     "name": "Papua New Guinea",
     "currencySymbol": "K",
-    "abbreviation": "PGK",
-    "currencyRate": 3.760074
+    "abbreviation": "PGK"
   },
   {
     "name": "Madagascar",
     "currencySymbol": "Ar",
-    "abbreviation": "MGA",
-    "currencyRate": 4526.019482
+    "abbreviation": "MGA"
   },
   {
     "name": "Bouvet Island",
     "currencySymbol": "kr",
-    "abbreviation": "NOK",
-    "currencyRate": 10.595574
+    "abbreviation": "NOK"
   },
   {
     "name": "Hungary",
     "currencySymbol": "Ft",
-    "abbreviation": "HUF",
-    "currencyRate": 354.033764
+    "abbreviation": "HUF"
   },
   {
     "name": "Tokelau",
     "currencySymbol": "$",
-    "abbreviation": "NZD",
-    "currencyRate": 1.64655
+    "abbreviation": "NZD"
   },
   {
     "name": "Trinidad and Tobago",
     "currencySymbol": "$",
-    "abbreviation": "TTD",
-    "currencyRate": 6.758038
+    "abbreviation": "TTD"
   },
   {
     "name": "Gambia",
     "currencySymbol": "D",
-    "abbreviation": "GMD",
-    "currencyRate": 65.408644
+    "abbreviation": "GMD"
   },
   {
     "name": "Luxembourg",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Cocos (Keeling) Islands",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Republic of the Congo",
     "currencySymbol": "Fr",
-    "abbreviation": "XAF",
-    "currencyRate": 606.572767
+    "abbreviation": "XAF"
   },
   {
     "name": "Argentina",
     "currencySymbol": "$",
-    "abbreviation": "ARS",
-    "currencyRate": 827.35
+    "abbreviation": "ARS"
   },
   {
     "name": "DR Congo",
     "currencySymbol": "FC",
-    "abbreviation": "CDF",
-    "currencyRate": 2716.067932
+    "abbreviation": "CDF"
   },
   {
     "name": "Greenland",
     "currencySymbol": "kr.",
-    "abbreviation": "DKK",
-    "currencyRate": 6.898427
+    "abbreviation": "DKK"
   },
   {
     "name": "Jordan",
     "currencySymbol": "د.ا",
-    "abbreviation": "JOD",
-    "currencyRate": 0.709
+    "abbreviation": "JOD"
   },
   {
     "name": "Belgium",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Switzerland",
     "currencySymbol": "Fr.",
-    "abbreviation": "CHF",
-    "currencyRate": 0.863956
+    "abbreviation": "CHF"
   },
   {
     "name": "Indonesia",
     "currencySymbol": "Rp",
-    "abbreviation": "IDR",
-    "currencyRate": 15695.419403
+    "abbreviation": "IDR"
   },
   {
     "name": "Lebanon",
     "currencySymbol": "ل.ل",
-    "abbreviation": "LBP",
-    "currencyRate": 15000
+    "abbreviation": "LBP"
   },
   {
     "name": "Malaysia",
     "currencySymbol": "RM",
-    "abbreviation": "MYR",
-    "currencyRate": 4.724922
+    "abbreviation": "MYR"
   },
   {
     "name": "Cayman Islands",
     "currencySymbol": "$",
-    "abbreviation": "KYD",
-    "currencyRate": 0.833333
+    "abbreviation": "KYD"
   },
   {
     "name": "Slovakia",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Armenia",
     "currencySymbol": "֏",
-    "abbreviation": "AMD",
-    "currencyRate": 404.630053
+    "abbreviation": "AMD"
   },
   {
     "name": "Christmas Island",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Mongolia",
     "currencySymbol": "₮",
-    "abbreviation": "MNT",
-    "currencyRate": 3429.255984
+    "abbreviation": "MNT"
   },
   {
     "name": "Saint Pierre and Miquelon",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Japan",
     "currencySymbol": "¥",
-    "abbreviation": "JPY",
-    "currencyRate": 147.547441
+    "abbreviation": "JPY"
   },
   {
     "name": "South Africa",
     "currencySymbol": "R",
-    "abbreviation": "ZAR",
-    "currencyRate": 18.77637
+    "abbreviation": "ZAR"
   },
   {
     "name": "Philippines",
     "currencySymbol": "₱",
-    "abbreviation": "PHP",
-    "currencyRate": 56.071503
+    "abbreviation": "PHP"
   },
   {
     "name": "Micronesia",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Germany",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Latvia",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Jamaica",
     "currencySymbol": "$",
-    "abbreviation": "JMD",
-    "currencyRate": 155.554206
+    "abbreviation": "JMD"
   },
   {
     "name": "Macau",
     "currencySymbol": "P",
-    "abbreviation": "MOP",
-    "currencyRate": 8.055251
+    "abbreviation": "MOP"
   },
   {
     "name": "Nauru",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Faroe Islands",
     "currencySymbol": "kr",
-    "abbreviation": "DKK",
-    "currencyRate": 6.898427
+    "abbreviation": "DKK"
   },
   {
     "name": "Guyana",
     "currencySymbol": "$",
-    "abbreviation": "GYD",
-    "currencyRate": 209.275733
+    "abbreviation": "GYD"
   },
   {
     "name": "Burkina Faso",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Sudan",
     "currencySymbol": "£",
-    "abbreviation": "SDG",
-    "currencyRate": 509.048931
+    "abbreviation": "SDG"
   },
   {
     "name": "Russia",
     "currencySymbol": "₽",
-    "abbreviation": "RUB",
-    "currencyRate": 91.03317
+    "abbreviation": "RUB"
   },
   {
     "name": "Mayotte",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Australia",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Liberia",
     "currencySymbol": "$",
-    "abbreviation": "LRD",
-    "currencyRate": 192.027991
+    "abbreviation": "LRD"
   },
   {
     "name": "Mexico",
     "currencySymbol": "$",
-    "abbreviation": "MXN",
-    "currencyRate": 17.13839
+    "abbreviation": "MXN"
   },
   {
     "name": "Tunisia",
     "currencySymbol": "د.ت",
-    "abbreviation": "TND",
-    "currencyRate": 3.120525
+    "abbreviation": "TND"
   },
   {
     "name": "Aruba",
     "currencySymbol": "ƒ",
-    "abbreviation": "AWG",
-    "currencyRate": 1.79
+    "abbreviation": "AWG"
   },
   {
     "name": "Kazakhstan",
     "currencySymbol": "₸",
-    "abbreviation": "KZT",
-    "currencyRate": 449.687033
+    "abbreviation": "KZT"
   },
   {
     "name": "Oman",
     "currencySymbol": "ر.ع.",
-    "abbreviation": "OMR",
-    "currencyRate": 0.384497
+    "abbreviation": "OMR"
   },
   {
     "name": "French Guiana",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Niger",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Turkmenistan",
     "currencySymbol": "m",
-    "abbreviation": "TMT",
-    "currencyRate": 3.499807
+    "abbreviation": "TMT"
   },
   {
     "name": "Sierra Leone",
     "currencySymbol": "Le",
-    "abbreviation": "SLL",
-    "currencyRate": 22547.278774
+    "abbreviation": "SLL"
   },
   {
     "name": "Samoa",
     "currencySymbol": "T",
-    "abbreviation": "WST",
-    "currencyRate": 2.731668
+    "abbreviation": "WST"
   },
   {
     "name": "Senegal",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Georgia",
     "currencySymbol": "₾",
-    "abbreviation": "GEL",
-    "currencyRate": 2.671304
+    "abbreviation": "GEL"
   },
   {
     "name": "Namibia",
     "currencySymbol": "$",
-    "abbreviation": "NAD",
-    "currencyRate": 18.775587
+    "abbreviation": "NAD"
   },
   {
     "name": "South Sudan",
     "currencySymbol": "£",
-    "abbreviation": "SSP",
-    "currencyRate": 1105.242374
+    "abbreviation": "SSP"
   },
   {
     "name": "Thailand",
     "currencySymbol": "฿",
-    "abbreviation": "THB",
-    "currencyRate": 35.551349
+    "abbreviation": "THB"
   },
   {
     "name": "Bahrain",
     "currencySymbol": ".د.ب",
-    "abbreviation": "BHD",
-    "currencyRate": 0.376
+    "abbreviation": "BHD"
   },
   {
     "name": "Heard Island and McDonald Islands",
     "currencySymbol": "$",
-    "abbreviation": "AUD",
-    "currencyRate": 1.53093
+    "abbreviation": "AUD"
   },
   {
     "name": "Falkland Islands",
     "currencySymbol": "£",
-    "abbreviation": "FKP",
-    "currencyRate": 0.789226
+    "abbreviation": "FKP"
   },
   {
     "name": "Jersey",
     "currencySymbol": "£",
-    "abbreviation": "GBP",
-    "currencyRate": 0.78924
+    "abbreviation": "GBP"
   },
   {
     "name": "Vietnam",
     "currencySymbol": "₫",
-    "abbreviation": "VND",
-    "currencyRate": 24373.588866
+    "abbreviation": "VND"
   },
   {
     "name": "Guatemala",
     "currencySymbol": "Q",
-    "abbreviation": "GTQ",
-    "currencyRate": 7.811715
+    "abbreviation": "GTQ"
   },
   {
     "name": "Moldova",
     "currencySymbol": "L",
-    "abbreviation": "MDL",
-    "currencyRate": 17.804384
+    "abbreviation": "MDL"
   },
   {
     "name": "North Macedonia",
     "currencySymbol": "den",
-    "abbreviation": "MKD",
-    "currencyRate": 56.714424
+    "abbreviation": "MKD"
   },
   {
     "name": "Uzbekistan",
     "currencySymbol": "so'm",
-    "abbreviation": "UZS",
-    "currencyRate": 12384.16266
+    "abbreviation": "UZS"
   },
   {
     "name": "Romania",
     "currencySymbol": "lei",
-    "abbreviation": "RON",
-    "currencyRate": 4.5949
+    "abbreviation": "RON"
   },
   {
     "name": "Uganda",
     "currencySymbol": "Sh",
-    "abbreviation": "UGX",
-    "currencyRate": 3814.118813
+    "abbreviation": "UGX"
   },
   {
     "name": "El Salvador",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Zambia",
     "currencySymbol": "ZK",
-    "abbreviation": "ZMW",
-    "currencyRate": 27.197906
+    "abbreviation": "ZMW"
   },
   {
     "name": "Gabon",
     "currencySymbol": "Fr",
-    "abbreviation": "XAF",
-    "currencyRate": 606.572767
+    "abbreviation": "XAF"
   },
   {
     "name": "Equatorial Guinea",
     "currencySymbol": "Fr",
-    "abbreviation": "XAF",
-    "currencyRate": 606.572767
+    "abbreviation": "XAF"
   },
   {
     "name": "Spain",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "Netherlands",
     "currencySymbol": "€",
-    "abbreviation": "EUR",
-    "currencyRate": 0.924729
+    "abbreviation": "EUR"
   },
   {
     "name": "British Virgin Islands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Benin",
     "currencySymbol": "Fr",
-    "abbreviation": "XOF",
-    "currencyRate": 606.572767
+    "abbreviation": "XOF"
   },
   {
     "name": "Pakistan",
     "currencySymbol": "₨",
-    "abbreviation": "PKR",
-    "currencyRate": 276.553543
+    "abbreviation": "PKR"
   },
   {
     "name": "Panama",
     "currencySymbol": "B/.",
-    "abbreviation": "PAB",
-    "currencyRate": 1
+    "abbreviation": "PAB"
   },
   {
     "name": "Turks and Caicos Islands",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Angola",
     "currencySymbol": "Kz",
-    "abbreviation": "AOA",
-    "currencyRate": 843.504683
+    "abbreviation": "AOA"
   },
   {
     "name": "American Samoa",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Venezuela",
     "currencySymbol": "Bs.S.",
-    "abbreviation": "VES",
-    "currencyRate": 36.2859
+    "abbreviation": "VES"
   },
   {
     "name": "Costa Rica",
     "currencySymbol": "₡",
-    "abbreviation": "CRC",
-    "currencyRate": 513.161407
+    "abbreviation": "CRC"
   },
   {
     "name": "Puerto Rico",
     "currencySymbol": "$",
-    "abbreviation": "USD",
-    "currencyRate": 1
+    "abbreviation": "USD"
   },
   {
     "name": "Seychelles",
     "currencySymbol": "₨",
-    "abbreviation": "SCR",
-    "currencyRate": 13.244945
+    "abbreviation": "SCR"
   }
 ]

@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import Login from "@/components/Login";
 import "@/styles/globals.css";
 import { CartProvider } from "@/utils/CartContext";
+import { CountryProvider } from "@/utils/CountryContext";
 import { UserContext, UserDataProps, UserDataValues } from "@/utils/UserContext";
 import { useAuthentication } from "@/utils/affinidi/hooks/use-authentication";
 import type { AppProps } from "next/app";
@@ -39,13 +40,15 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <UserContext.Provider value={[userData, setUserData]}>
-        <CartProvider>
-          <Layout>
-            {userData.userId ?
-              <Component {...pageProps} />
-              : <Login userLoading={userLoading} />}
-          </Layout>
-        </CartProvider>
+        <CountryProvider>
+          <CartProvider>
+            <Layout>
+              {userData.userId ?
+                <Component {...pageProps} />
+                : <Login userLoading={userLoading} />}
+            </Layout>
+          </CartProvider>
+        </CountryProvider>
       </UserContext.Provider>
     </>
   );

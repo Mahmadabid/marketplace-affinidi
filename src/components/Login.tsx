@@ -16,7 +16,7 @@ const Login: React.FC<LoginProps> = ({userLoading}) => {
     clientLogin();
   }
 
-  const headerHeight = 8;
+  const headerHeight = 14;
 
   return (
     <div className="flex items-center justify-center" style={{ minHeight: `calc(100vh - ${headerHeight}rem)` }}>
