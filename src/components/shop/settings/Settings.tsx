@@ -4,7 +4,7 @@ import { faCertificate } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useContext, Dispatch, SetStateAction, useEffect } from "react";
 import stringSimilarity from "string-similarity";
-import { countries } from "../country/Countries";
+import { countries } from "../../country/Countries";
 import Cookies from 'js-cookie';
 
 interface SettingsProps {

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 
-interface ItemProps {
+export interface ItemProps {
   id: number;
   name: string;
   price: number;
