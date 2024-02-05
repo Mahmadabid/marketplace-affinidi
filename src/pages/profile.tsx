@@ -11,7 +11,7 @@ const Profile = () => {
     return (
         <div className="container mx-auto mt-8 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             <div className="col-span-full bg-gray-100 p-6 rounded-md shadow-md flex flex-col items-center justify-center">
-                {!User.user.picture ? <img src={User.user.picture} alt="Profile Picture" className="w-32 h-32 rounded-full" /> : <div className='relative rounded-full bg-sky-100 w-32 h-32'>
+                {User.user.picture ? <img src={User.user.picture} alt="Profile Picture" className="w-32 h-32 rounded-full" /> : <div className='relative rounded-full bg-sky-100 w-32 h-32'>
                     <svg
                         className="absolute left-0 -top-[6px] w-32 h-32 text-[#00aaff]"
                         fill="currentColor"

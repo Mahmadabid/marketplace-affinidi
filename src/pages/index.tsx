@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 import { categories, convertedPrice, discountedPrice, products } from "@/components/shop/utils";
 import Product from "@/components/shop/Product";
 import SearchSettings from "@/components/shop/settings/SearchSettings";
+import FilterSettings from "@/components/shop/settings/FilterSettings";
 
 const ProductDisplay = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,13 +19,17 @@ const ProductDisplay = () => {
   const [search, setSearch] = useState('');
   const [showSettings, setShowSettings] = useState(true);
   const [showSearchSettings, setShowSearchSettings] = useState(false);
+  const [showFilterSettings, setShowFilterSettings] = useState(false);
+  const [showSortSettings, setShowSortSettings] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [sortOrder, setSortOrder] = useState('default');
+  const [filterSortOrder, setFilterSortOrder] = useState('default');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+  const [filterMinPrice, setFilterMinPrice] = useState('');
+  const [filterMaxPrice, setFilterMaxPrice] = useState('');
   const [User, _] = useContext(UserContext);
   const [selectedGender, setSelectedGender] = useState(User.user.gender ? User.user.gender === 'male' ? 'Men' : User.user.gender === 'female' ? 'Women' : 'All' : 'All');
-  const [selectedSearchGender, setSelectedSearchGender] = useState(User.user.gender ? User.user.gender === 'male' ? 'Men' : User.user.gender === 'female' ? 'Women' : 'All' : 'All');
   const [country, setCountry] = useContext(CountryContext);
 
   useEffect(() => {
@@ -91,7 +96,7 @@ const ProductDisplay = () => {
   const filterProducts = () => {
     if (search) {
       const filtered = products.filter((product) => {
-        const genderMatch = selectedSearchGender === 'All' || product.gender === selectedSearchGender;
+        const genderMatch = selectedGender === 'All' || product.gender === selectedGender;
 
         if (!genderMatch) {
           return false;
@@ -127,11 +132,47 @@ const ProductDisplay = () => {
 
       return sortedProducts;
     } else {
-      return products.filter(product => product.gender === selectedGender || selectedGender === 'All');
+      const filtered = products.filter(product => {
+        const genderMatch = selectedGender === 'All' || product.gender === selectedGender;
+
+        if (!genderMatch) {
+          return false;
+        }
+
+        const priceMatch =
+          (!filterMinPrice || convertedPrice(User.user.verified ? discountedPrice(product.price, User.user.verified) : product.price, country.currencyRate) >= parseInt(filterMinPrice, 10)) &&
+          (!filterMaxPrice || convertedPrice(User.user.verified ? discountedPrice(product.price, User.user.verified) : product.price, country.currencyRate) <= parseInt(filterMaxPrice, 10));
+
+        return priceMatch;
+      });
+
+      const sortedProducts = filtered.sort((a, b) => {
+        switch (filterSortOrder) {
+          case 'name-asc':
+            return a.name.localeCompare(b.name);
+          case 'name-desc':
+            return b.name.localeCompare(a.name);
+          case 'price-asc':
+            return convertedPrice(User.user.verified ? discountedPrice(a.price, User.user.verified) : a.price, country.currencyRate) - convertedPrice(User.user.verified ? discountedPrice(b.price, User.user.verified) : b.price, country.currencyRate);
+          case 'price-desc':
+            return convertedPrice(User.user.verified ? discountedPrice(b.price, User.user.verified) : b.price, country.currencyRate) - convertedPrice(User.user.verified ? discountedPrice(a.price, User.user.verified) : a.price, country.currencyRate);
+          default:
+            return 0;
+        }
+      });
+
+      return sortedProducts;
     }
   };
 
   const filteredProducts = filterProducts();
+
+  const handleFilterOrder = () => {
+    setShowSortSettings(prev => !prev);
+    if (showSortSettings) {
+      setFilterSortOrder('default')
+    }
+  }
 
   return (
     <div>
@@ -161,7 +202,10 @@ const ProductDisplay = () => {
         </div>
         <p className="text-sky-600 font-medium my-1">Type Name to start filtering</p>
       </div>}
-      {showSearchSettings && <SearchSettings categories={categories} minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} selectedSearchGender={selectedSearchGender} setSelectedSearchGender={setSelectedSearchGender} sortOrder={sortOrder} setSortOrder={setSortOrder} setShowSearchSettings={setShowSearchSettings} />}
+      {showSearchSettings && <SearchSettings categories={categories} minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} selectedGender={selectedGender} setSelectedGender={setSelectedGender} sortOrder={sortOrder} setSortOrder={setSortOrder} setShowSearchSettings={setShowSearchSettings} />}
+      {!showSearch && <div className="flex justify-center my-3 items-center">
+        <FilterSettings setFilterMaxPrice={setFilterMaxPrice} setFilterMinPrice={setFilterMinPrice} filterMaxPrice={filterMaxPrice} filterMinPrice={filterMinPrice} setFilterSortOrder={setFilterSortOrder} setShowFilterSettings={setShowFilterSettings} showFilterSettings={showFilterSettings} showSortSettings={showSortSettings} filterSortOrder={filterSortOrder} handleFilterOrder={handleFilterOrder} />
+      </div>}
       <div className="flex flex-wrap justify-center mt-8">
         {showModal && <Modal closeModal={closeModal} />}
         {filteredProducts.map((product, index) => (

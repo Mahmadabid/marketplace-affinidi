@@ -25,6 +25,12 @@ export const products = [
     { id: 13, name: 'Women\'s Handbag', price: 35, imageUrl: 'https://example.com/womens-handbag.jpg', quantity: 1, description: 'Women\'s handbag description', gender: 'Women' },
     { id: 14, name: 'Women\'s Earrings', price: 20, imageUrl: 'https://example.com/womens-earrings.jpg', quantity: 1, description: 'Women\'s earrings description', gender: 'Women' },
     { id: 15, name: 'Women\'s Sunglasses', price: 25, imageUrl: 'https://example.com/womens-sunglasses.jpg', quantity: 1, description: 'Women\'s sunglasses description', gender: 'Women' },
-  ];
+    { id: 16, name: 'Men\'s Polo Shirt', price: 28, imageUrl: 'https://example.com/mens-polo-shirt.jpg', quantity: 1, description: 'Men\'s polo shirt description', gender: 'Men' },
+    { id: 17, name: 'Men\'s Chinos', price: 45, imageUrl: 'https://example.com/mens-chinos.jpg', quantity: 1, description: 'Men\'s chinos description', gender: 'Men' },
+    { id: 18, name: 'Men\'s Belt', price: 18, imageUrl: 'https://example.com/mens-belt.jpg', quantity: 1, description: 'Men\'s belt description', gender: 'Men' },
+    { id: 19, name: 'Women\'s Blouse', price: 35, imageUrl: 'https://example.com/womens-blouse.jpg', quantity: 1, description: 'Women\'s blouse description', gender: 'Women' },
+    { id: 20, name: 'Women\'s Skirt', price: 22, imageUrl: 'https://example.com/womens-skirt.jpg', quantity: 1, description: 'Women\'s skirt description', gender: 'Women' },
+    { id: 21, name: 'Women\'s Scarf', price: 15, imageUrl: 'https://example.com/womens-scarf.jpg', quantity: 1, description: 'Women\'s scarf description', gender: 'Women' },
+];
 
 export const categories = ['Men', 'Women', 'All'];

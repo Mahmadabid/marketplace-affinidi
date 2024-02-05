@@ -4,8 +4,8 @@ import { Dispatch, SetStateAction, useContext } from "react";
 
 interface SearchSettingProps {
     categories: string[];
-    setSelectedSearchGender: Dispatch<SetStateAction<string>>;
-    selectedSearchGender: string;
+    setSelectedGender: Dispatch<SetStateAction<string>>;
+    selectedGender: string;
     setSortOrder: Dispatch<SetStateAction<string>>;
     sortOrder: string;
     setMinPrice: Dispatch<SetStateAction<string>>;
@@ -15,14 +15,14 @@ interface SearchSettingProps {
     setShowSearchSettings: Dispatch<SetStateAction<boolean>>;
 }
 
-const SearchSettings: React.FC<SearchSettingProps> = ({ categories, setSelectedSearchGender, selectedSearchGender, sortOrder, setSortOrder, setMinPrice, minPrice, maxPrice, setMaxPrice, setShowSearchSettings }) => {
+const SearchSettings: React.FC<SearchSettingProps> = ({ categories, setSelectedGender, selectedGender, sortOrder, setSortOrder, setMinPrice, minPrice, maxPrice, setMaxPrice, setShowSearchSettings }) => {
 
     const [country] = useContext(CountryContext);
     const [User, _] = useContext(UserContext);
 
     const handleSearchFilters = () => {
         setSortOrder('default');
-        setSelectedSearchGender(User.user.gender ? User.user.gender === 'male' ? 'Men' : User.user.gender === 'female' ? 'Women' : 'All' : 'All');
+        setSelectedGender(User.user.gender ? User.user.gender === 'male' ? 'Men' : User.user.gender === 'female' ? 'Women' : 'All' : 'All');
         setMinPrice('');
         setMaxPrice('');
     }
@@ -37,8 +37,8 @@ const SearchSettings: React.FC<SearchSettingProps> = ({ categories, setSelectedS
                             {categories.map((category, index) => (
                                 <li
                                     key={index}
-                                    className={`hover:cursor-pointer font-medium text-lg mb-2 ${selectedSearchGender === category ? 'text-slate-500' : ''}`}
-                                    onClick={() => setSelectedSearchGender(category)}
+                                    className={`hover:cursor-pointer font-medium text-lg mb-2 ${selectedGender === category ? 'text-slate-500' : ''}`}
+                                    onClick={() => setSelectedGender(category)}
                                 >
                                     {category}
                                 </li>
@@ -50,7 +50,7 @@ const SearchSettings: React.FC<SearchSettingProps> = ({ categories, setSelectedS
                         <select
                             value={sortOrder}
                             onChange={(e) => setSortOrder(e.target.value)}
-                            className="rounded p-1 mx-1 border"
+                            className="rounded p-1 mx-1 border border-gray-300 focus:border-gray-300 focus:outline-none"
                         >
                             <option value="default">Default</option>
                             <option value="name-asc">Name (Ascending)</option>
@@ -69,7 +69,7 @@ const SearchSettings: React.FC<SearchSettingProps> = ({ categories, setSelectedS
                                     placeholder="Min"
                                     value={minPrice}
                                     onChange={(e) => setMinPrice(e.target.value)}
-                                    className="rounded p-1 border"
+                                    className="rounded p-1 border focus:border-gray-300 focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -79,11 +79,12 @@ const SearchSettings: React.FC<SearchSettingProps> = ({ categories, setSelectedS
                                     placeholder="Max"
                                     value={maxPrice}
                                     onChange={(e) => setMaxPrice(e.target.value)}
-                                    className="rounded p-1 border"
+                                    className="rounded p-1 border focus:border-gray-300 focus:outline-none"
                                 />
                             </div>
                         </div>
                     </div>
+
                     <button onClick={handleSearchFilters} className="p-1 bg-red-700 hover:bg-[#ff0000] text-white font-medium rounded my-2">Clear Search Filters</button>
                     <button onClick={() => setShowSearchSettings(false)} className="p-1 bg-gray-800 hover:bg-black text-white font-medium rounded my-2">Close Search Settings</button>
                 </div>
