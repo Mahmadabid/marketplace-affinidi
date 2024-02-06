@@ -8,29 +8,32 @@ export const discountedPrice = (price: number, verified: boolean) => {
     return Number(converted.toFixed(2));
 };
 
+export const calculateAge = (birthdate: string) => {
+    const birthDate = new Date(birthdate);
+    const currentDate = new Date();
+
+    const ageDifference = currentDate.getFullYear() - birthDate.getFullYear();
+    const monthDifference = currentDate.getMonth() - birthDate.getMonth();
+    const dayDifference = currentDate.getDate() - birthDate.getDate();
+
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+        return ageDifference - 1 > 15 ? 'adults' : 'kids';
+    }
+
+    return ageDifference > 15 ? 'adults' : 'kids';
+};
 
 export const products = [
-    { id: 1, name: 'Hoodie', price: 4, imageUrl: 'hoodie.png', quantity: 1, description: 'hkjasdf jfhkjashf kashdfjshdf sjhkjh', gender: 'Women' },
-    { id: 2, name: 'T-Shird', price: 15, imageUrl: 'tee.png', quantity: 1, description: 'hkjasdf jfhkjas', gender: 'Men' },
-    { id: 3, name: 'Hoodie123', price: 10, imageUrl: 'hoodie.png', quantity: 1, description: 'hkjasdf jfhkjashf kashdfjshdf sjhkjh', gender: 'Women' },
-    { id: 4, name: 'T-Shirt', price: 30, imageUrl: 'tee.png', quantity: 1, description: 'hkjasdf jfhkjas', gender: 'Men' },
-    { id: 5, name: 'Sweater', price: 20, imageUrl: 'https://d2z0lqci37nukm.cloudfront.net/media/catalog/product/cache/5a319794f6868ce12b948b8c65d98dde/m/-/m-sw06-m112-ebony201_rbpoybyydv2tloxh.webp', quantity: 1, description: 'Some description', gender: 'Women' },
-    { id: 6, name: 'Men\'s Shirt', price: 25, imageUrl: 'https://example.com/mens-shirt.jpg', quantity: 1, description: 'Men\'s shirt description', gender: 'Men' },
-    { id: 7, name: 'Men\'s Jeans', price: 35, imageUrl: 'https://example.com/mens-jeans.jpg', quantity: 1, description: 'Men\'s jeans description', gender: 'Men' },
-    { id: 8, name: 'Men\'s Sneakers', price: 30, imageUrl: 'https://example.com/mens-sneakers.jpg', quantity: 1, description: 'Men\'s sneakers description', gender: 'Men' },
-    { id: 9, name: 'Men\'s Watch', price: 50, imageUrl: 'https://example.com/mens-watch.jpg', quantity: 1, description: 'Men\'s watch description', gender: 'Men' },
-    { id: 10, name: 'Men\'s Backpack', price: 40, imageUrl: 'https://example.com/mens-backpack.jpg', quantity: 1, description: 'Men\'s backpack description', gender: 'Men' },
-    { id: 11, name: 'Women\'s Dress', price: 40, imageUrl: 'https://example.com/womens-dress.jpg', quantity: 1, description: 'Women\'s dress description', gender: 'Women' },
-    { id: 12, name: 'Women\'s Shoes', price: 30, imageUrl: 'https://example.com/womens-shoes.jpg', quantity: 1, description: 'Women\'s shoes description', gender: 'Women' },
-    { id: 13, name: 'Women\'s Handbag', price: 35, imageUrl: 'https://example.com/womens-handbag.jpg', quantity: 1, description: 'Women\'s handbag description', gender: 'Women' },
-    { id: 14, name: 'Women\'s Earrings', price: 20, imageUrl: 'https://example.com/womens-earrings.jpg', quantity: 1, description: 'Women\'s earrings description', gender: 'Women' },
-    { id: 15, name: 'Women\'s Sunglasses', price: 25, imageUrl: 'https://example.com/womens-sunglasses.jpg', quantity: 1, description: 'Women\'s sunglasses description', gender: 'Women' },
-    { id: 16, name: 'Men\'s Polo Shirt', price: 28, imageUrl: 'https://example.com/mens-polo-shirt.jpg', quantity: 1, description: 'Men\'s polo shirt description', gender: 'Men' },
-    { id: 17, name: 'Men\'s Chinos', price: 45, imageUrl: 'https://example.com/mens-chinos.jpg', quantity: 1, description: 'Men\'s chinos description', gender: 'Men' },
-    { id: 18, name: 'Men\'s Belt', price: 18, imageUrl: 'https://example.com/mens-belt.jpg', quantity: 1, description: 'Men\'s belt description', gender: 'Men' },
-    { id: 19, name: 'Women\'s Blouse', price: 35, imageUrl: 'https://example.com/womens-blouse.jpg', quantity: 1, description: 'Women\'s blouse description', gender: 'Women' },
-    { id: 20, name: 'Women\'s Skirt', price: 22, imageUrl: 'https://example.com/womens-skirt.jpg', quantity: 1, description: 'Women\'s skirt description', gender: 'Women' },
-    { id: 21, name: 'Women\'s Scarf', price: 15, imageUrl: 'https://example.com/womens-scarf.jpg', quantity: 1, description: 'Women\'s scarf description', gender: 'Women' },
+    { id: 1, name: 'Unisex Hoodie', price: 34, imageUrl: 'Unisex Hoodie.png', quantity: 1, description: 'Unisex hoodie description', gender: 'Unisex', age: 'adults' },
+    { id: 2, name: 'Men Stackup Shirt', price: 20, imageUrl: 'Men Stackup Shirt.png', quantity: 1, description: 'Men stackup shirt description', gender: 'Men', age: 'adults' },
+    { id: 5, name: 'Men White Shirt', price: 30.5, imageUrl: 'Men White Shirt.png', quantity: 1, description: 'Men\'s white shirt description', gender: 'Men', age: 'adults' },
+    { id: 6, name: 'Men Red Shirt', price: 31, imageUrl: 'Men Red Shirt.png', quantity: 1, description: 'Men\'s red shirt description', gender: 'Men', age: 'adults' },
+    { id: 7, name: 'Men Maroon Shirt', price: 32, imageUrl: 'Men Maroon Shirt.png', quantity: 1, description: 'Men\'s maroon shirt description', gender: 'Men', age: 'adults' },
+    { id: 8, name: 'Men Green Shirt', price: 30, imageUrl: 'Men Green Shirt.png', quantity: 1, description: 'Men\'s green shirt description', gender: 'Men', age: 'adults' },
+    { id: 9, name: 'Men Black Shirt', price: 33, imageUrl: 'Men Black Shirt.png', quantity: 1, description: 'Men\'s black shirt description', gender: 'Men', age: 'adults' },
+    { id: 10, name: 'Kid sky Shirt', price: 22.5, imageUrl: 'Kid sky Shirt.png', quantity: 1, description: 'Kids sky shirt description', gender: 'Men', age: 'kids' },
+    { id: 11, name: 'Kid Red Shirt', price: 23, imageUrl: 'Kid Red Shirt.png', quantity: 1, description: 'Kids red shirt description', gender: 'Men', age: 'kids' },
+    { id: 12, name: 'Kid Blue Shirt', price: 24, imageUrl: 'Kid Blue Shirt.png', quantity: 1, description: 'Kids blue shirt description', gender: 'Men', age: 'kids' },
 ];
 
 export const categories = ['Men', 'Women', 'All'];

@@ -7,6 +7,8 @@ export interface ItemProps {
   imageUrl: string;
   quantity: number;
   description: string;
+  gender: string;
+  age: string;
 }
 
 interface CartContextProps {

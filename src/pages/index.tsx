@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import stringSimilarity from 'string-similarity';
 import Cookies from 'js-cookie';
-import { categories, convertedPrice, discountedPrice, products } from "@/components/shop/utils";
+import { calculateAge, categories, convertedPrice, discountedPrice, products } from "@/components/shop/utils";
 import Product from "@/components/shop/Product";
 import SearchSettings from "@/components/shop/settings/SearchSettings";
 import FilterSettings from "@/components/shop/settings/FilterSettings";
@@ -30,6 +30,8 @@ const ProductDisplay = () => {
   const [filterMaxPrice, setFilterMaxPrice] = useState('');
   const [User, _] = useContext(UserContext);
   const [selectedGender, setSelectedGender] = useState(User.user.gender ? User.user.gender === 'male' ? 'Men' : User.user.gender === 'female' ? 'Women' : 'All' : 'All');
+  const [userAge, setUserAge] = useState(User.user.birthdate ? calculateAge(User.user.birthdate) : 'adults')
+  const [searchUserAge, setSearchUserAge] = useState(User.user.birthdate ? calculateAge(User.user.birthdate) : 'adults')
   const [country, setCountry] = useContext(CountryContext);
 
   useEffect(() => {
@@ -94,9 +96,10 @@ const ProductDisplay = () => {
   }
 
   const filterProducts = () => {
+
     if (search) {
       const filtered = products.filter((product) => {
-        const genderMatch = selectedGender === 'All' || product.gender === selectedGender;
+        const genderMatch = selectedGender === 'All' || product.gender === selectedGender || product.gender === 'Unisex';
 
         if (!genderMatch) {
           return false;
@@ -130,10 +133,28 @@ const ProductDisplay = () => {
         }
       });
 
-      return sortedProducts;
+      const finalSortedProducts = sortedProducts.sort((a, b) => {
+        if (searchUserAge === 'kids') {
+          if (a.age === 'kids' && b.age === 'adults') {
+            return -1;
+          } else if (a.age === 'adults' && b.age === 'kids') {
+            return 1;
+          }
+        } else if (searchUserAge === 'adults') {
+          if (a.age === 'adults' && b.age === 'kids') {
+            return -1;
+          } else if (a.age === 'kids' && b.age === 'adults') {
+            return 1;
+          }
+        }
+
+        return 0;
+      });
+
+      return finalSortedProducts;
     } else {
       const filtered = products.filter(product => {
-        const genderMatch = selectedGender === 'All' || product.gender === selectedGender;
+        const genderMatch = selectedGender === 'All' || product.gender === selectedGender || product.gender === 'Unisex';
 
         if (!genderMatch) {
           return false;
@@ -161,7 +182,25 @@ const ProductDisplay = () => {
         }
       });
 
-      return sortedProducts;
+      const finalSortedProducts = sortedProducts.sort((a, b) => {
+        if (userAge === 'kids') {
+          if (a.age === 'kids' && b.age === 'adults') {
+            return -1;
+          } else if (a.age === 'adults' && b.age === 'kids') {
+            return 1;
+          }
+        } else if (userAge === 'adults') {
+          if (a.age === 'adults' && b.age === 'kids') {
+            return -1;
+          } else if (a.age === 'kids' && b.age === 'adults') {
+            return 1;
+          }
+        }
+
+        return 0;
+      });
+
+      return finalSortedProducts;
     }
   };
 
@@ -202,9 +241,9 @@ const ProductDisplay = () => {
         </div>
         <p className="text-sky-600 font-medium my-1">Type Name to start filtering</p>
       </div>}
-      {showSearchSettings && <SearchSettings categories={categories} minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} selectedGender={selectedGender} setSelectedGender={setSelectedGender} sortOrder={sortOrder} setSortOrder={setSortOrder} setShowSearchSettings={setShowSearchSettings} />}
+      {showSearchSettings && <SearchSettings searchUserAge={searchUserAge} setSearchUserAge={setSearchUserAge} categories={categories} minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} selectedGender={selectedGender} setSelectedGender={setSelectedGender} sortOrder={sortOrder} setSortOrder={setSortOrder} setShowSearchSettings={setShowSearchSettings} />}
       {!showSearch && <div className="flex justify-center my-3 items-center">
-        <FilterSettings setFilterMaxPrice={setFilterMaxPrice} setFilterMinPrice={setFilterMinPrice} filterMaxPrice={filterMaxPrice} filterMinPrice={filterMinPrice} setFilterSortOrder={setFilterSortOrder} setShowFilterSettings={setShowFilterSettings} showFilterSettings={showFilterSettings} showSortSettings={showSortSettings} filterSortOrder={filterSortOrder} handleFilterOrder={handleFilterOrder} />
+        <FilterSettings userAge={userAge} setUserAge={setUserAge} setFilterMaxPrice={setFilterMaxPrice} setFilterMinPrice={setFilterMinPrice} filterMaxPrice={filterMaxPrice} filterMinPrice={filterMinPrice} setFilterSortOrder={setFilterSortOrder} setShowFilterSettings={setShowFilterSettings} showFilterSettings={showFilterSettings} showSortSettings={showSortSettings} filterSortOrder={filterSortOrder} handleFilterOrder={handleFilterOrder} />
       </div>}
       <div className="flex flex-wrap justify-center mt-8">
         {showModal && <Modal closeModal={closeModal} />}

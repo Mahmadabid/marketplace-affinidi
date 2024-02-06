@@ -2,6 +2,8 @@ import { CountryContext } from "@/utils/CountryContext";
 import { faArrowDownShortWide } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Dispatch, SetStateAction, useContext } from "react";
+import { calculateAge } from "../utils";
+import { UserContext } from "@/utils/UserContext";
 
 interface FilterSettingsProps {
     showSortSettings: boolean;
@@ -14,16 +16,24 @@ interface FilterSettingsProps {
     setFilterMaxPrice: Dispatch<SetStateAction<string>>;
     filterMinPrice: string;
     filterMaxPrice: string;
+    userAge: string;
+    setUserAge: Dispatch<SetStateAction<string>>;
 }
 
-const FilterSettings: React.FC<FilterSettingsProps> = ({ showSortSettings, filterSortOrder, setFilterSortOrder, handleFilterOrder, setShowFilterSettings, showFilterSettings, setFilterMinPrice, setFilterMaxPrice, filterMinPrice, filterMaxPrice }) => {
+const FilterSettings: React.FC<FilterSettingsProps> = ({ showSortSettings, filterSortOrder, setFilterSortOrder, handleFilterOrder, setShowFilterSettings, showFilterSettings, setFilterMinPrice, setFilterMaxPrice, filterMinPrice, filterMaxPrice, userAge, setUserAge }) => {
 
     const [country] = useContext(CountryContext);
+    const [User, _] = useContext(UserContext);
 
     const handleFilters = () => {
         setFilterMaxPrice('');
         setFilterMinPrice('');
+        setUserAge(User.user.birthdate ? calculateAge(User.user.birthdate) : 'adults')
     }
+
+    const handleUserAgeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUserAge(event.target.value);
+    };
 
     return (
         <div className="flex justify-between px-2 items-center border-b-gray-400 border-b-[1px] w-64">
@@ -48,6 +58,35 @@ const FilterSettings: React.FC<FilterSettingsProps> = ({ showSortSettings, filte
                 <div className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-60 min-w-screen min-h-screen">
                     <div className="bg-white rounded border border-gray-500 mx-1">
                         <div className="flex justify-center items-center flex-col p-3">
+                            <div className="flex flex-col justify-center items-center">
+                                <label className="font-medium text-lg mr-2">User Age:</label>
+                                <div className="flex items-center space-x-4 my-1">
+                                    <div className="flex items-center">
+                                        <input
+                                            type="radio"
+                                            id="adults"
+                                            name="userAge"
+                                            value="adults"
+                                            checked={userAge === "adults"}
+                                            onChange={handleUserAgeChange}
+                                            className="mr-2"
+                                        />
+                                        <label htmlFor="adults" className="cursor-pointer text-gray-800 font-medium">Adults</label>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <input
+                                            type="radio"
+                                            id="kids"
+                                            name="userAge"
+                                            value="kids"
+                                            checked={userAge === "kids"}
+                                            onChange={handleUserAgeChange}
+                                            className="mr-2"
+                                        />
+                                        <label htmlFor="kids" className="cursor-pointer text-gray-800 font-medium">Kids</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="my-2">
                                 <label className="font-medium text-lg">Price Range:</label>
                                 <div className="flex flex-col my-2 space-y-2">
