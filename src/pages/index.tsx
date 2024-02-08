@@ -48,7 +48,7 @@ const ProductDisplay = () => {
     if (fecthSetting) {
       setShowSettings(false);
     }
-  }, [])
+  }, []);
 
   const openModal = () => {
     setShowModal(true);

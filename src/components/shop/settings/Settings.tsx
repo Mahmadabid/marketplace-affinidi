@@ -18,6 +18,7 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
     const [isVisible, setIsVisible] = useState(false);
     const [User, _] = useContext(UserContext);
     const [pressed, setPressed] = useState(false);
+    const [showAgain, setShowAgain] = useState(false);
 
     const CountryFetch = () => {
         if (!User.user.country) return;
@@ -33,6 +34,8 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
 
         return closestCountry;
     }
+
+    const fecthSetting = Cookies.get('setting');
 
     useEffect(() => {
         const fetchCountry = localStorage.getItem('country');
@@ -79,7 +82,13 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
     const handleSetting = () => {
         setShowSettings(false);
 
-        Cookies.set('setting', 'false');
+        if (showAgain) {
+            const expirationDate = new Date();
+            expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+            Cookies.set('setting', 'false', { expires: expirationDate });
+        } else {
+            Cookies.set('setting', 'false')
+        }
     }
 
     return (
@@ -131,6 +140,11 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
                         <h3 className="font-medium text-lg mt-1">Your Country: <span className="text-green-600">{country.name}</span></h3>
                         <h3 className="font-medium text-lg mb-2 mt-1">Your Currency: <span className="text-teal-600">{country.abbreviation}</span></h3>
                     </div>}
+                    {!fecthSetting &&
+                        <div className="flex items-center my-1 justify-center">
+                            <label htmlFor="showAgain" className="mr-2 font-medium">Don't show again</label>
+                            <input type="checkbox" id="showAgain" checked={showAgain} onChange={(e) => setShowAgain(e.target.checked)} />
+                        </div>}
                     <button onClick={handleSetting} className="p-1 bg-gray-800 hover:bg-black text-white font-medium rounded my-2">Close Settings</button>
                 </div>
             </div>
