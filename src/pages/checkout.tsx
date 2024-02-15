@@ -153,6 +153,11 @@ const Checkout = () => {
     }
   };
 
+  const handlePay = () => {
+    setShowConfirmationModal(true);
+    clearCart();
+  }
+
   return (
     <div className='min-h-screen bg-sky-100'>
       {loading && (
@@ -343,15 +348,16 @@ const Checkout = () => {
                   </label>
                 </div>
               </div>
-              {paymentMethod !== 'cash' &&
+              {paymentMethod !== 'cash'?
                 <div>
                   {transactions.length > 0 ? <div>
                     <h2 className='font-medium italic'>Your Balance: <span className='font-medium not-italic'><span className="mr-1 font-medium text-[#37aca8] text-lg">{country.currencySymbol}</span>{calculateBalance()}</span></h2>
                     {error && <p className='text-[#ff0000]'>{error}</p>}
                     <button onClick={handleSend} disabled={!deliveryAddress} className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full">Pay</button>
-                  </div> : <div></div>}
+                  </div> : <div>
+                  </div>}
                 </div>
-              }
+              : <div><button onClick={handlePay} disabled={!deliveryAddress} className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full">Pay</button></div>}
             </div>)}
         </div>
         {showConfirmationModal && (
