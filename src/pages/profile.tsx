@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { UserContext } from "@/utils/Context";
 import { useContext } from "react";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUser, faGlobe, faPhone, faVenusMars, faMapMarkerAlt, faBuilding, faMapPin, faCertificate, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { UserContext } from '@/utils/UserContext';
 
 const Profile = () => {
     const [User, _] = useContext(UserContext);
