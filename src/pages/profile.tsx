@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { UserContext } from "@/utils/UserContext";
+import { UserContext } from "@/utils/Context";
 import { useContext } from "react";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faUser, faGlobe, faPhone, faVenusMars, faMapMarkerAlt, faBuilding, faCertificate, faCalendar, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUser, faGlobe, faPhone, faVenusMars, faMapMarkerAlt, faBuilding, faMapPin, faCertificate, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
     const [User, _] = useContext(UserContext);
     const [isVisible, setIsVisible] = useState(false);
 
     return (
-        <div className="container mx-auto mt-8 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <div className="col-span-full bg-gray-100 p-6 rounded-md shadow-md flex flex-col items-center justify-center">
-                {User.user.picture ? <img src={User.user.picture} alt="Profile Picture" className="w-32 h-32 rounded-full" /> : <div className='relative rounded-full bg-sky-100 w-32 h-32'>
+        <div>
+            <div className="col-span-full bg-[#e8f4f5] p-6 mb-2 mt-3 rounded-md mx-6 shadow-md flex flex-col items-center justify-center">
+                {!User.user.picture ? <img src={User.user.picture} alt="Profile Picture" className="w-32 h-32 rounded-full" /> : <div className='relative rounded-full bg-sky-100 w-32 h-32'>
                     <svg
                         className="absolute left-0 -top-[6px] w-32 h-32 text-[#00aaff]"
                         fill="currentColor"
@@ -26,7 +27,7 @@ const Profile = () => {
                     </svg>
                 </div>}
                 <div className='flex flex-row items-center justify-center mt-4'>
-                    <p className='text-3xl font-bold text-[#000d47]'>{User.user.givenName} {User.user.middleName} {User.user.familyName} {User.user.givenName && User.user.familyName && User.user.middleName? null: 'User'}</p>
+                    <p className='text-3xl font-bold text-[#000d47]'>{User.user.givenName} {User.user.middleName} {User.user.familyName} {User.user.givenName && User.user.familyName && User.user.middleName ? null : 'User'}</p>
                     <span
                         className="ml-2 inline-block relative group"
                         onMouseEnter={() => setIsVisible(true)}
@@ -63,51 +64,53 @@ const Profile = () => {
                     </span>
                 </div>
             </div>
-            {User.user.country &&
-                <div className="col-span-1 bg-green-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
-                    <strong className="text-lg">Country:</strong> {User.user.country}
-                </div>}
-            {User.user.phoneNumber &&
-                <div className="col-span-1 bg-yellow-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faPhone} className="text-xl mr-2" />
-                    <strong className="text-lg">Phone Number:</strong> {User.user.phoneNumber}
-                </div>}
-            {User.user.gender &&
-                <div className="col-span-1 bg-pink-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faVenusMars} className="text-xl mr-2" />
-                    <strong className="text-lg">Gender:</strong> {User.user.gender}
-                </div>}
-            {User.user.address &&
-                <div className="col-span-1 bg-purple-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faMapMarkerAlt} className="text-xl mr-2" />
-                    <strong className="text-lg">Address:</strong> {User.user.address}
-                </div>}
-            {User.user.email &&
-                <div className="col-span-2 bg-orange-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faEnvelope} className="text-xl mr-2" />
-                    <strong className="text-lg">Email:</strong> {User.user.email}
-                </div>}
-            {User.user.nickname &&
-                <div className="col-span-1 bg-cyan-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faUser} className="text-xl mr-2" />
-                    <strong className="text-lg">Nickname:</strong> {User.user.nickname}
-                </div>}
-            {User.user.postalCode &&
-                <div className="col-span-1 bg-teal-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faMapMarkedAlt} className="text-xl mr-2" />
-                    <strong className="text-lg">Postal Code:</strong> {User.user.postalCode}
-                </div>}
-            {User.user.birthdate &&
-                <div className="col-span-1 bg-red-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faCalendar} className="text-xl mr-2" />
-                    <strong className="text-lg">Birthdate:</strong> {User.user.birthdate}
-                </div>}
-            {User.user.city &&
-                <div className="col-span-1 bg-indigo-100 p-4 rounded-md shadow-md">
-                    <FontAwesomeIcon icon={faBuilding} className="text-xl mr-2" />
-                    <strong className="text-lg">City:</strong> {User.user.city}
-                </div>}
+            <div className='container mx-auto px-4 py-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+                {User.user.country &&
+                    <div className="col-span-1 bg-green-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
+                        <strong className="text-lg">Country:</strong> {User.user.country}
+                    </div>}
+                {User.user.phoneNumber &&
+                    <div className="col-span-1 bg-yellow-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faPhone} className="text-xl mr-2" />
+                        <strong className="text-lg">Phone Number:</strong> {User.user.phoneNumber}
+                    </div>}
+                {User.user.gender &&
+                    <div className="col-span-1 bg-pink-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faVenusMars} className="text-xl mr-2" />
+                        <strong className="text-lg">Gender:</strong> {User.user.gender}
+                    </div>}
+                {User.user.address &&
+                    <div className="col-span-1 bg-purple-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className="text-xl mr-2" />
+                        <strong className="text-lg">Address:</strong> {User.user.address}
+                    </div>}
+                {User.user.email &&
+                    <div className="col-span-2 prf:col-span-1 bg-orange-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faEnvelope} className="text-xl mr-2" />
+                        <strong className="text-lg">Email:</strong> {User.user.email}
+                    </div>}
+                {User.user.nickname &&
+                    <div className="col-span-1 bg-cyan-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faUser} className="text-xl mr-2" />
+                        <strong className="text-lg">Nickname:</strong> {User.user.nickname}
+                    </div>}
+                {User.user.postalCode &&
+                    <div className="col-span-1 bg-teal-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faMapPin} className="text-xl mr-2" />
+                        <strong className="text-lg">Postal Code:</strong> {User.user.postalCode}
+                    </div>}
+                {User.user.birthdate &&
+                    <div className="col-span-1 bg-red-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faCalendar} className="text-xl mr-2" />
+                        <strong className="text-lg">Birthdate:</strong> {User.user.birthdate}
+                    </div>}
+                {User.user.city &&
+                    <div className="col-span-1 bg-indigo-100 p-4 rounded-md shadow-md">
+                        <FontAwesomeIcon icon={faBuilding} className="text-xl mr-2" />
+                        <strong className="text-lg">City:</strong> {User.user.city}
+                    </div>}
+            </div>
         </div>
     );
 }

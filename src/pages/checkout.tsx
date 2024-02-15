@@ -1,15 +1,37 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '@/utils/UserContext';
 import { useRouter } from 'next/navigation';
 import ConfirmationModal from '@/components/shop/ConfirmationModal';
 import { useCartContext } from '@/utils/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCity, faEnvelope, faGlobe, faMapMarkedAlt, faMapMarkerAlt, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCity, faEnvelope, faGlobe, faMapMarkedAlt, faMapMarkerAlt, faMoneyBill, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
+import Load from '@/components/utils/Load';
+import { CountryContext } from '@/utils/CountryContext';
+import { generateRandomId } from '@/components/utils/RandomId';
+import GetDate from '@/components/global/Date';
+import { convertedPrice } from '@/components/shop/utils';
+
+export interface BankProps {
+  receiver: string;
+  amount: number;
+  id: string;
+  date: string;
+  owner: string;
+}
 
 const Checkout = () => {
   const [User, _] = useContext(UserContext);
-  const { clearCart } = useCartContext();
+  const [country] = useContext(CountryContext);
+  const { clearCart, cartItems } = useCartContext();
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [showDeliveryAddress, setShowDeliveryAddress] = useState(false);
+  const [checkDeliveryAddress, setCheckDeliveryAddress] = useState(false);
+  const [deliveryAddress, setDeliveryAddress] = useState('');
+  const [error, setError] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const [transactions, setTransactions] = useState<BankProps[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [fetchData, setFetchData] = useState(false);
   const router = useRouter();
 
   const [userData, setUserData] = useState({
@@ -30,8 +52,11 @@ const Checkout = () => {
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    setShowConfirmationModal(true);
-    clearCart();
+    setShowDeliveryAddress(true);
+  };
+
+  const handlePaymentMethodChange = (e: any) => {
+    setPaymentMethod(e.target.value);
   };
 
   const closeConfirmationModal = () => {
@@ -39,8 +64,104 @@ const Checkout = () => {
     router.push('/');
   };
 
+  const handleCheck = () => {
+    if (checkDeliveryAddress) {
+      setDeliveryAddress('');
+      setCheckDeliveryAddress(false);
+    } else {
+      setDeliveryAddress(userData.address);
+      setCheckDeliveryAddress(true);
+    }
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const res = await fetch(`https://my-space-affinidi.vercel.app/api/bank?owner=${User.userId}`, {
+        method: 'GET',
+      });
+
+      const data = await res.json();
+
+      if (data.length > 0) {
+        const formattedData = data.map((item: { amount: string; }) => ({
+          ...item,
+          amount: parseFloat(item.amount),
+        }));
+
+        setTransactions(formattedData);
+        setLoading(false);
+      }
+      else {
+        setTransactions([]);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [fetchData]);
+
+  const calculateBalance = () => {
+    if (transactions.length === 0) {
+      return 0;
+    } else {
+      const balance = transactions.reduce((total, transaction) => (transaction.receiver === User.userId ? total + transaction.amount : total - transaction.amount), 0);
+      return convertedPrice(balance, country.currencyRate);
+    }
+  };
+
+  const reConvertedPrice = (price: number, currencyRate: number) => {
+    const converted = price / currencyRate;
+    return converted;
+  };
+
+  const getTotalPrice = () => {
+    const TotalPrice = cartItems.reduce((total, item) => total + item.quantity * convertedPrice(item.price, country.currencyRate), 0);
+    return Number(TotalPrice.toFixed(2));
+  };
+
+  const handleSend = async () => {
+    setFetchData(prev => !prev);
+
+    const balance = calculateBalance();
+
+    if (balance >= getTotalPrice()) {
+      try {
+        setLoading(true);
+        const res = await fetch('https://my-space-affinidi.vercel.app/api/bank', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ receiver: 'Pixel MarketPlace', amount: reConvertedPrice(getTotalPrice(), country.currencyRate), id: generateRandomId(User.userId), date: GetDate(), owner: User.userId }),
+        });
+
+        if (!res.ok) {
+          throw new Error('Failed to add transaction');
+        }
+
+        setFetchData(prev => !prev);
+        setShowConfirmationModal(true);
+        clearCart();
+      } catch (error) {
+        console.error('Error adding transaction:', error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      setError('Wallet balance is less then amount')
+    }
+  };
+
   return (
     <div className='min-h-screen bg-sky-100'>
+      {loading && (
+        <div
+          className="fixed top-0 z-40 left-0 w-screen h-screen bg-gray-700 opacity-70 flex flex-col space-y-2 items-center justify-center"
+        >
+          <Load className='w-9 h-9 fill-white' />
+        </div>
+      )}
       <div className="p-6 max-w-screen-md mx-auto">
         <div className="bg-slate-50 p-4 flex flex-col rounded items-center">
           <h2 className="mb-4 text-4xl italic text-emerald-500 font-bold">Checkout</h2>
@@ -155,14 +276,83 @@ const Checkout = () => {
               className="w-full p-2 mb-2 border rounded bg-slate-200"
               required
             />
-
-            <button
-              type="submit"
-              className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full"
-            >
-              Submit Order
-            </button>
+            {!showDeliveryAddress ?
+              <button
+                type="submit"
+                className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full"
+              >
+                Go to Delivery
+              </button> : <div className='mt-2'><h2 className='font-medium text-lg mt-5'>Go to Billing</h2></div>}
           </form>
+          {showDeliveryAddress && (
+            <div className="w-80 my-3">
+              <label htmlFor="deliveryAddress" className="block mb-2 font-medium">
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1" />
+                Delivery Address
+              </label>
+              <input
+                type="text"
+                name="deliveryAddress"
+                id="deliveryAddress"
+                value={deliveryAddress}
+                onChange={(e) => setDeliveryAddress(e.target.value)}
+                className="w-full p-2 mb-4 border rounded bg-slate-200"
+              />
+              <div className="">
+                <input
+                  type="checkbox"
+                  id="sameAsBillingAddress"
+                  checked={checkDeliveryAddress}
+                  onChange={handleCheck}
+                  className="mr-2 cursor-pointer"
+                />
+                <label htmlFor="sameAsBillingAddress" className="cursor-pointer text-gray-800 font-medium">
+                  Same as Billing Address
+                </label>
+                {!deliveryAddress && <p className='text-[#ff0000]'>Enter Delivery Address</p>}
+              </div>
+              <div className="mb-4 mt-6">
+                <div className='flex flex-row items-center space-x-2'>
+                  <FontAwesomeIcon icon={faMoneyBill} />
+                  <label className="block mb-2 font-medium">Payment Method</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="cashOnDelivery"
+                    name="paymentMethod"
+                    value="cash"
+                    checked={paymentMethod === 'cash'}
+                    onChange={handlePaymentMethodChange}
+                    className="mr-2 cursor-pointer"
+                  />
+                  <label htmlFor="cashOnDelivery" className="cursor-pointer mr-4 text-gray-800 font-medium">
+                    Cash on Delivery
+                  </label>
+                  <input
+                    type="radio"
+                    id="pixelBank"
+                    name="paymentMethod"
+                    value="pixel"
+                    checked={paymentMethod === 'pixel'}
+                    onChange={handlePaymentMethodChange}
+                    className="mr-2 cursor-pointer"
+                  />
+                  <label htmlFor="pixelBank" className="cursor-pointer text-gray-800 font-medium">
+                    Pay through Pixel Bank
+                  </label>
+                </div>
+              </div>
+              {paymentMethod !== 'cash' &&
+                <div>
+                  {transactions.length > 0 ? <div>
+                    <h2 className='font-medium italic'>Your Balance: <span className='font-medium not-italic'><span className="mr-1 font-medium text-[#37aca8] text-lg">{country.currencySymbol}</span>{calculateBalance()}</span></h2>
+                    {error && <p className='text-[#ff0000]'>{error}</p>}
+                    <button onClick={handleSend} disabled={!deliveryAddress} className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full">Pay</button>
+                  </div> : <div></div>}
+                </div>
+              }
+            </div>)}
         </div>
         {showConfirmationModal && (
           <ConfirmationModal closeModal={closeConfirmationModal} />
