@@ -10,6 +10,7 @@ import { CountryContext } from '@/utils/CountryContext';
 import { generateRandomId } from '@/components/utils/RandomId';
 import GetDate from '@/components/global/Date';
 import { convertedPrice } from '@/components/shop/utils';
+import Link from 'next/link';
 
 export interface BankProps {
   receiver: string;
@@ -354,7 +355,9 @@ const Checkout = () => {
                     <h2 className='font-medium italic'>Your Balance: <span className='font-medium not-italic'><span className="mr-1 font-medium text-[#37aca8] text-lg">{country.currencySymbol}</span>{calculateBalance()}</span></h2>
                     {error && <p className='text-[#ff0000]'>{error}</p>}
                     <button onClick={handleSend} disabled={!deliveryAddress} className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full">Pay</button>
-                  </div> : <div>
+                  </div> : <div className='mt-7'>
+                    <h3 className='text-xl font-medium my-2'>You dont have an Account.</h3>
+                    <Link href="https://my-space-affinidi.vercel.app/bank" target="_blank"><button className="hover:bg-blue bg-blue-700 rounded text-white py-2 w-full">Create Account</button></Link>
                   </div>}
                 </div>
               : <div><button onClick={handlePay} disabled={!deliveryAddress} className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full">Pay</button></div>}
