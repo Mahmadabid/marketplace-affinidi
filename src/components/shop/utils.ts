@@ -34,6 +34,14 @@ export const products = [
     { id: 10, name: 'Kid sky Shirt', price: 22.5, imageUrl: 'Kid sky Shirt.png', quantity: 1, description: 'Kids sky shirt description', gender: 'Men', age: 'kids' },
     { id: 11, name: 'Kid Red Shirt', price: 23, imageUrl: 'Kid Red Shirt.png', quantity: 1, description: 'Kids red shirt description', gender: 'Men', age: 'kids' },
     { id: 12, name: 'Kid Blue Shirt', price: 24, imageUrl: 'Kid Blue Shirt.png', quantity: 1, description: 'Kids blue shirt description', gender: 'Men', age: 'kids' },
+    { id: 13, name: 'Unisex Climbing Boots', price: 30, imageUrl: 'Unisex Climbing Boots.png', quantity: 1, description: 'Unisex Climbing Boots.png', gender: 'Unisex', age: 'adults' },
+    { id: 14, name: 'Men Wallet', price: 15, imageUrl: 'Men Wallet.png', quantity: 1, description: 'Men Wallet description', gender: 'Men', age: 'adults' },
+    { id: 15, name: 'Women Purse and Bag', price: 45, imageUrl: 'Women Purse and Bag.png', quantity: 1, description: 'Women Purse and Bag description', gender: 'Women', age: 'adults' },
+    { id: 16, name: 'Women Purse', price: 30, imageUrl: 'Women Purse.png', quantity: 1, description: 'Women Purse description', gender: 'Women', age: 'adults' },
+    { id: 17, name: 'Women Winter Boots', price: 28, imageUrl: 'Women Winter Boots.png', quantity: 1, description: 'Women Winter Boots description', gender: 'Women', age: 'adults' },
+    { id: 18, name: 'Kid Sneakers', price: 20, imageUrl: 'Kid Sneakers.png', quantity: 1, description: 'Kid Sneakers description', gender: 'Women', age: 'kids' },
+    { id: 19, name: 'Kid Bracelet', price: 21, imageUrl: 'Kid Bracelet.png', quantity: 1, description: 'Kid Bracelet description', gender: 'Women', age: 'kids' },
+    { id: 20, name: 'Women Hat and Scarf', price: 40, imageUrl: 'Women Hat and Scarf.png', quantity: 1, description: 'Women Hat and Scarf description', gender: 'Women', age: 'adults' },
 ];
 
 export const categories = ['Men', 'Women', 'All'];
