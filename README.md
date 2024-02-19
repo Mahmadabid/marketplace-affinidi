@@ -52,5 +52,34 @@ For better speed rates are prefetched an.d arent fetched on request. So data may
 
 * **LivenessCheck**
 
-
+LivenessCheck is used to assign a blue tick checkmark to the user. Verified users will get 1% discount on all shop items. Liveness check is used in profile page and Home Page.
  
+ 
+### User Experience
+
+User experience is enhanced by search filters and sort features. 
+
+**Filters**
+
+User can sort according to:
+
+* Name (Descending)
+* Name (Ascending)
+* Price (Descending)
+* Price (Ascending)
+
+User can add minimum and maximum price limit.
+
+User can set gender and age filter.
+
+**Search**
+
+User can search different products by typing the name also user can apply above filters for each search.
+
+### Payment
+Two payments methods are supported.
+1. Cash on delivery
+2. [Pixel Bank](https://my-space-affinidi.vercel.app/bank)
+
+##### Pixel Bank
+Pixels Marketplace has integrated Pixel Bank to offer users online payments. Users can view there balance in Pixels Marketplace and directly make payments from here.
