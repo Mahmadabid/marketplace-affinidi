@@ -53,7 +53,9 @@ Currently Affinidi offers various data points about users and Pixel Marketplace 
 * **LivenessCheck**
 
     LivenessCheck is used to assign a blue tick checkmark to the user. Verified users will get 1% discount on all shop items. Liveness check is used in profile page and Home Page.
- 
+
+* **userID**
+    userID is used to verify users Pixel Bank details and to make transactions. 
  
 ### User Experience
 
