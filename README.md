@@ -83,3 +83,9 @@ Two payments methods are supported.
 
 ##### Pixel Bank
 Pixels Marketplace has integrated Pixel Bank to offer users online payments. Users can view there balance in Pixels Marketplace and directly make payments from here.
+
+### [Profile](https://pixels-market.vercel.app/profile)
+
+[Code](https://github.com/Mahmadabid/marketplace-affinidi/blob/master/src/pages/profile.tsx)
+
+Profile page uses all of the affinidi information to create a profile page for user.
