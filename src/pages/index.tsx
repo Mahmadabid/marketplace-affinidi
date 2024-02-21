@@ -15,7 +15,6 @@ import FilterSettings from "@/components/shop/settings/FilterSettings";
 
 const ProductDisplay = () => {
   const [showModal, setShowModal] = useState(false);
-  const [switchCountry, setSwitchCountry] = useState(0);
   const [search, setSearch] = useState('');
   const [showSettings, setShowSettings] = useState(true);
   const [showSearchSettings, setShowSearchSettings] = useState(false);
@@ -35,15 +34,6 @@ const ProductDisplay = () => {
   const [country, setCountry] = useContext(CountryContext);
 
   useEffect(() => {
-    const fetchCountry = localStorage.getItem('country');
-    if (fetchCountry) {
-      setSwitchCountry(2);
-    } else {
-      setSwitchCountry(1);
-    }
-  }, []);
-
-  useEffect(() => {
     const fecthSetting = Cookies.get('setting');
     if (fecthSetting) {
       setShowSettings(false);
@@ -57,38 +47,6 @@ const ProductDisplay = () => {
   const closeModal = () => {
     setShowModal(false);
   };
-
-  useEffect(() => {
-    if (switchCountry !== 1) return;
-
-    if (User.user.country) {
-      const userCountryName = User.user.country;
-
-      const matches = stringSimilarity.findBestMatch(
-        userCountryName,
-        countries.map((c) => c.name)
-      );
-
-      const bestMatch = matches.bestMatch;
-      const closestCountry = countries.find((c) => c.name === bestMatch.target);
-
-      if (closestCountry) {
-        setCountry({
-          name: closestCountry.name,
-          currencySymbol: closestCountry.currencySymbol,
-          abbreviation: closestCountry.abbreviation,
-          currencyRate: closestCountry.currencyRate,
-        });
-      }
-    } else {
-      setCountry({
-        name: "United States",
-        currencySymbol: "$",
-        abbreviation: "USD",
-        currencyRate: 1,
-      });
-    }
-  }, [User, switchCountry]);
 
   const handleShowSearch = () => {
     setSearch('');
