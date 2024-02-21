@@ -54,6 +54,7 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
                 abbreviation: "USD",
                 currencyRate: 1,
             });
+            localStorage.setItem('change', 'change');
             setPressed(false);
         } else {
             if (!User.user.country) return;
@@ -74,6 +75,7 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
                     abbreviation: closestCountry.abbreviation,
                     currencyRate: closestCountry.currencyRate,
                 });
+                localStorage.removeItem('change');
             }
             setPressed(true);
         }

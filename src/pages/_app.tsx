@@ -17,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [userLoading, setUserLoading] = useState(false);
   const router = useRouter();
   const [country, setCountry] = useState<CountryProps>(initialCountryState);
+  const [changeOK, setChangeOK] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -49,8 +50,20 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    if (!userData.userId) return;
-    
+    const fetchCountry = localStorage.getItem('country');
+    const fetchChange = localStorage.getItem('change');
+
+    if (fetchChange && fetchCountry) {
+      if (fetchChange === 'change') {
+        setCountry(JSON.parse(fetchCountry));
+        setChangeOK(true);
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!userData.userId || changeOK) return;
+
     if (userData.user.country) {
       const userCountryName = userData.user.country;
 
@@ -83,7 +96,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <UserContext.Provider value={[userData, setUserData]}>
-        <CountryContext.Provider value={[country, setCountry]}>
+        <CountryContext.Provider value={[country, setAndStoreCountry]}>
           <CartProvider>
             <Layout>
               {userData.userId ?
