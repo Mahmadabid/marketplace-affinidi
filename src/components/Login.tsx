@@ -13,6 +13,7 @@ const Login: React.FC<LoginProps> = ({userLoading}) => {
 
   const handleLogin = () => {
     setLoading(true);
+    localStorage.removeItem('cartItems');
     clientLogin();
   }
 
