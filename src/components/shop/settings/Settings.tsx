@@ -44,8 +44,8 @@ const Settings: React.FC<SettingsProps> = ({ setShowSettings, country, setCountr
                 setPressed(true);
             }
         }
-    }, []);
-console.log(pressed)
+    }, [User]);
+
     const countrySwitch = () => {
         if (pressed) {
             setCountry({
