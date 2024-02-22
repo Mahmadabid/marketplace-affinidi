@@ -364,6 +364,7 @@ const Checkout = () => {
                     {transactions.length > 0 ? <div>
                       <h2 className='font-medium italic'>Your Balance: <span className='font-medium not-italic'><span className="mr-1 font-medium text-[#37aca8] text-lg">{country.currencySymbol}</span>{calculateBalance()}</span></h2>
                       {error && <p className='text-[#ff0000]'>{error}</p>}
+                      <h2 className='font-medium text-slate-700'>Your Order: <span className='font-medium not-italic'><span className="mr-1 font-medium text-[#37aca8] text-lg">{country.currencySymbol}</span>{getTotalPrice()}</span></h2>
                       <button onClick={handleSend} disabled={!deliveryAddress} className="hover:bg-black bg-gray-800 rounded text-white py-2 mt-8 w-full">Pay</button>
                     </div> : <div className='mt-7'>
                       <h3 className='text-xl font-medium my-2'>You dont have an Account.</h3>
